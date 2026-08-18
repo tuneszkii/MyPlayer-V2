@@ -1,0 +1,370 @@
+2026-08-18T13:21:32.310Z 6238 version, started
+2026-08-18T13:21:32.313Z 6238 version, succeeded
+2026-08-18T13:21:32.319Z 548 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T13:21:32.320Z 548 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T13:21:32.325Z 4238 getCurrentLaneObject(), started
+2026-08-18T13:21:32.326Z 3924 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T13:21:32.327Z 8693 status  --ignoreCircularDependencies, started
+2026-08-18T13:21:32.348Z 4238 getCurrentLaneObject(), succeeded
+2026-08-18T13:21:32.377Z 3924 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T13:21:32.392Z 4871 getCurrentLaneName(), started
+2026-08-18T13:21:32.393Z 4871 getCurrentLaneName(), succeeded
+2026-08-18T13:21:34.609Z 4886 listIdsWithPaths(), started
+2026-08-18T13:21:34.611Z 4886 listIdsWithPaths(), succeeded
+2026-08-18T13:21:35.098Z 8693 status  --ignoreCircularDependencies, succeeded
+2026-08-18T13:21:35.103Z 4034 getModifiedByConfig(), started
+2026-08-18T13:21:35.104Z 544 getCompsMetadata(), started
+2026-08-18T13:21:35.116Z 4034 getModifiedByConfig(), succeeded
+2026-08-18T13:21:35.415Z 544 getCompsMetadata(), succeeded
+2026-08-18T13:22:12.781Z 7664 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:22:12.794Z 7664 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:22:28.460Z 3063 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:22:28.463Z 3063 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:22:39.376Z 7032 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:22:39.379Z 7032 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:24:37.410Z 4851 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:24:37.411Z 4851 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:25:06.867Z 8414 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:25:06.869Z 8414 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:32:12.713Z 6997 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:32:12.716Z 6997 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:32:46.887Z 3807 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:32:46.896Z 3807 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:32:46.900Z 8275 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:32:46.902Z 8275 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:32:47.703Z 5592 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:32:47.710Z 5592 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:32:47.714Z 58 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:32:47.723Z 58 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:33:06.228Z 2165 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:33:06.233Z 2165 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:33:06.238Z 8644 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:33:06.239Z 8644 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:33:16.840Z 1408 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:33:16.847Z 1408 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:33:16.854Z 6667 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:33:16.861Z 6667 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:33:18.580Z 4680 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:33:18.584Z 4680 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:33:18.587Z 1896 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:33:18.588Z 1896 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:33:23.057Z 6841 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:33:23.061Z 6841 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:33:23.064Z 8383 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:33:23.065Z 8383 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:36:11.228Z 6957 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:36:11.232Z 6957 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:36:11.236Z 8484 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:36:11.237Z 8484 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:36:57.305Z 3011 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:36:57.311Z 3011 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:36:57.316Z 7727 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:36:57.317Z 7727 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:36:59.210Z 2676 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:36:59.220Z 2676 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:36:59.228Z 3727 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:36:59.231Z 3727 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:37:15.641Z 1647 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:37:15.647Z 1647 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:37:15.656Z 2242 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:37:15.659Z 2242 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:37:32.709Z 5662 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:37:32.718Z 5662 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:37:32.731Z 1939 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:37:32.736Z 1939 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:37:34.499Z 4703 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:37:34.518Z 4703 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:37:34.526Z 4923 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:37:34.529Z 4923 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:37:36.508Z 7639 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:37:36.513Z 7639 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:37:36.516Z 7878 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:37:36.517Z 7878 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:37:43.843Z 2920 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:37:43.848Z 2920 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:37:43.851Z 9703 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:37:43.852Z 9703 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:38:20.669Z 1576 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:38:20.674Z 1576 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:38:20.679Z 9442 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:38:20.680Z 9442 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:38:21.956Z 6497 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:38:21.962Z 6497 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:38:21.968Z 3985 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:38:21.992Z 3985 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:40:45.974Z 5406 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:40:45.979Z 5406 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:40:45.982Z 6805 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:40:45.983Z 6805 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:40:48.303Z 5548 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:40:48.309Z 5548 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:40:48.316Z 9177 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:40:48.318Z 9177 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:42:58.747Z 2446 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:42:58.753Z 2446 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:42:58.760Z 2656 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:42:58.762Z 2656 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:02.388Z 3270 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:02.392Z 3270 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:02.396Z 4216 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:02.398Z 4216 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:14.459Z 5170 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:14.472Z 5170 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:14.477Z 8375 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:14.491Z 8375 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:22.960Z 706 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:22.965Z 706 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:22.968Z 1432 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:22.969Z 1432 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:25.353Z 2114 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:25.361Z 2114 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:25.366Z 4275 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:25.367Z 4275 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:33.918Z 1706 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:33.926Z 1706 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:33.930Z 8517 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:33.931Z 8517 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:51.943Z 5966 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:51.950Z 5966 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:51.953Z 7266 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:51.954Z 7266 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:56.968Z 939 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:56.972Z 939 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:56.978Z 1189 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:56.979Z 1189 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:43:59.259Z 4569 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:43:59.263Z 4569 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:43:59.267Z 783 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:43:59.268Z 783 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:11.963Z 7473 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:46:11.970Z 7473 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:46:12.104Z 2332 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:12.111Z 2332 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:15.871Z 3064 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:15.872Z 3064 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:17.229Z 1044 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:17.230Z 1044 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:18.432Z 3210 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:18.433Z 3210 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:36.041Z 6435 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:36.042Z 6435 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:46:52.305Z 8541 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:46:52.307Z 8541 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:49:31.601Z 5057 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:49:31.602Z 5057 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:49:32.408Z 4215 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:49:32.409Z 4215 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:50:37.120Z 3155 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:50:37.122Z 3155 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:50:53.164Z 5440 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:50:53.165Z 5440 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:20.251Z 5634 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:20.256Z 5634 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:20.260Z 9309 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:20.263Z 9309 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:22.610Z 2022 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:22.619Z 2022 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:22.629Z 3097 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:22.632Z 3097 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:29.618Z 3310 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:29.622Z 3310 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:29.646Z 4856 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:29.654Z 4856 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:40.932Z 3308 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:40.949Z 3308 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:40.954Z 4854 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:40.956Z 4854 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:49.940Z 8745 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:49.947Z 8745 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:49.958Z 6600 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:49.966Z 6600 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:51.884Z 415 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:51.889Z 415 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:51.892Z 317 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:51.893Z 317 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:52:55.906Z 5221 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:52:55.910Z 5221 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:52:55.913Z 4156 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:52:55.915Z 4156 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:01.150Z 2978 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:01.156Z 2978 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:01.162Z 6422 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:01.164Z 6422 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:05.098Z 345 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:05.103Z 345 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:05.107Z 2931 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:05.108Z 2931 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:08.954Z 5832 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:08.959Z 5832 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:08.964Z 1424 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:08.965Z 1424 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:20.047Z 2339 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:20.052Z 2339 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:20.056Z 8067 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:20.057Z 8067 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:23.133Z 1445 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:23.140Z 1445 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:23.144Z 3361 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:23.145Z 3361 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T13:53:24.848Z 1596 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T13:53:24.853Z 1596 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T13:53:24.858Z 2907 show sumelse.hoops/myplayer-builder, started
+2026-08-18T13:53:24.861Z 2907 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:04:53.631Z 1536 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:04:53.635Z 1536 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:04:53.640Z 3545 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:04:53.640Z 3545 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:04:57.135Z 9563 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:04:57.140Z 9563 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:04:57.143Z 8556 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:04:57.144Z 8556 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:00.759Z 6572 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:00.766Z 6572 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:00.772Z 7328 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:00.774Z 7328 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:08.267Z 320 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:08.270Z 320 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:08.273Z 3386 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:08.274Z 3386 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:09.814Z 7745 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:09.818Z 7745 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:09.822Z 5128 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:09.823Z 5128 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:16.647Z 8108 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:16.651Z 8108 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:16.661Z 6069 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:16.662Z 6069 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:18.207Z 6786 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:18.212Z 6786 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:18.216Z 4898 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:18.217Z 4898 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:21.137Z 5868 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:21.142Z 5868 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:21.147Z 8152 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:21.147Z 8152 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:24.741Z 1554 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:24.745Z 1554 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:24.749Z 9342 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:24.750Z 9342 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:29.680Z 9249 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:29.688Z 9249 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:29.697Z 9845 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:29.699Z 9845 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:05:37.124Z 8026 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:05:37.129Z 8026 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:05:37.135Z 6191 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:05:37.136Z 6191 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:06:14.048Z 3842 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:06:14.060Z 3842 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:06:14.064Z 2135 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:06:14.067Z 2135 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:06:23.058Z 4070 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:06:23.063Z 4070 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:06:23.068Z 1543 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:06:23.069Z 1543 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:06:28.150Z 6877 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:06:28.154Z 6877 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:06:28.158Z 3516 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:06:28.159Z 3516 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:19.526Z 9693 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:19.530Z 9693 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:19.536Z 6670 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:19.537Z 6670 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:30.597Z 7258 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:30.605Z 7258 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:30.612Z 383 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:30.615Z 383 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:35.992Z 8530 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:35.996Z 8530 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:36.005Z 4719 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:36.013Z 4719 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:37.113Z 8967 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:37.120Z 8967 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:37.124Z 417 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:37.127Z 417 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:48.131Z 3087 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:48.137Z 3087 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:48.141Z 724 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:48.142Z 724 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:53.217Z 4684 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:53.221Z 4684 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:53.225Z 2356 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:53.226Z 2356 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:15:54.329Z 5851 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:15:54.334Z 5851 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:15:54.340Z 1529 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:15:54.342Z 1529 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:16:00.125Z 5241 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:16:00.129Z 5241 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:16:00.132Z 1344 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:16:00.133Z 1344 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:16:59.635Z 4577 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:16:59.644Z 4577 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:16:59.648Z 6960 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:16:59.649Z 6960 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:25:56.384Z 2132 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:25:56.385Z 2132 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:25:57.601Z 7589 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:25:57.602Z 7589 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:26:29.826Z 3922 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:26:29.831Z 3922 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:26:29.834Z 3631 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:26:29.835Z 3631 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:27:30.939Z 1387 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:27:30.946Z 1387 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:27:30.950Z 862 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:27:30.951Z 862 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:27:46.878Z 7456 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:27:46.882Z 7456 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:27:46.885Z 7392 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:27:46.886Z 7392 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:04.722Z 9397 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:04.729Z 9397 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:04.735Z 4182 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:04.738Z 4182 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:06.492Z 5005 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:06.498Z 5005 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:06.505Z 1719 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:06.510Z 1719 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:18.363Z 323 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:18.368Z 323 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:18.376Z 5848 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:18.377Z 5848 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:25.958Z 4952 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:25.962Z 4952 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:25.964Z 173 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:25.965Z 173 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:32.407Z 1971 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:32.411Z 1971 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:32.414Z 3265 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:32.415Z 3265 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:28:49.611Z 1938 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:28:49.616Z 1938 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:28:49.619Z 1514 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:28:49.620Z 1514 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:29:18.744Z 6470 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:29:18.750Z 6470 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:29:18.753Z 8006 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:29:18.754Z 8006 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:29:27.672Z 9449 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T14:29:27.678Z 9449 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T14:29:27.681Z 8400 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:29:27.682Z 8400 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:34:26.222Z 292 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:34:26.223Z 292 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:40:01.079Z 4095 version, started
+2026-08-18T14:40:01.082Z 4095 version, succeeded
+2026-08-18T14:40:01.089Z 7322 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T14:40:01.098Z 7322 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T14:40:01.104Z 1157 getCurrentLaneObject(), started
+2026-08-18T14:40:01.105Z 348 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T14:40:01.106Z 6973 status  --ignoreCircularDependencies, started
+2026-08-18T14:40:01.106Z 1157 getCurrentLaneObject(), succeeded
+2026-08-18T14:40:01.146Z 348 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T14:40:01.167Z 7538 getCurrentLaneName(), started
+2026-08-18T14:40:01.170Z 7538 getCurrentLaneName(), succeeded
+2026-08-18T14:40:01.239Z 6279 show sumelse.hoops/myplayer-builder, started
+2026-08-18T14:40:04.131Z 6279 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T14:40:04.152Z 6973 status  --ignoreCircularDependencies, succeeded
+2026-08-18T14:40:04.159Z 2727 getModifiedByConfig(), started
+2026-08-18T14:40:04.161Z 2727 getModifiedByConfig(), succeeded

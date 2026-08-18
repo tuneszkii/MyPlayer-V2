@@ -1,0 +1,166 @@
+.grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  position: relative;
+  text-align: left;
+  border: 1px solid #1e2634;
+  background: #0f1420;
+  border-radius: 16px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: inherit;
+  font: inherit;
+  overflow: hidden;
+}
+
+.card:hover:not(.cardLocked) {
+  transform: translateY(-2px);
+  border-color: #384861;
+}
+
+.cardLocked {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cardSelected {
+  background: #131b2b;
+}
+
+.accentBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.name {
+  font-size: 1.02rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.statusChip {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 7px;
+}
+
+.chipUnlocked {
+  background: rgba(47, 224, 160, 0.16);
+  color: #2fe0a0;
+}
+
+.chipSelected {
+  background: #2fe0a0;
+  color: #06180f;
+}
+
+.chipLocked {
+  background: #1c2432;
+  color: #6f7b8e;
+}
+
+.desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #8792a6;
+}
+
+.reqTitle {
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5d6879;
+  margin-bottom: 0.4rem;
+}
+
+.reqList {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.req {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+
+.reqIcon {
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.reqMet {
+  color: #2fe0a0;
+}
+
+.reqUnmet {
+  color: #ff7a6b;
+}
+
+.reqName {
+  color: #cfd7e4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reqValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  font-size: 0.74rem;
+}
+
+.reqTrack {
+  grid-column: 2 / -1;
+  height: 3px;
+  border-radius: 999px;
+  background: #1a2130;
+  overflow: hidden;
+}
+
+.reqFill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.emptyNote {
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(255, 210, 63, 0.08);
+  border: 1px solid rgba(255, 210, 63, 0.2);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #ffd23f;
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,10 @@
+git status
+git init
+find . -name ".env*" -not -path "./node_modules/*
+git add .
+git commin -m "Initial commit"
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+cd /home/user/myplayer-builder
+git status
+git add

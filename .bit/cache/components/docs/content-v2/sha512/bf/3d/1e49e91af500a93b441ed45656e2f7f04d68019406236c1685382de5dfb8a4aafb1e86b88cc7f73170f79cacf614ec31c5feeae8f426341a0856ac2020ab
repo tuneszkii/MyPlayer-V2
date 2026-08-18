@@ -1,0 +1,1 @@
+[{"name":"","description":"Root of the MyPlayer Builder app.","args":[],"returns":{"description":"the app routes.","type":null},"access":"public","examples":[],"render":"","properties":[],"static":false,"filePath":"myplayer-builder.tsx"}]

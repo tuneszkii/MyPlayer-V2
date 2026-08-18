@@ -1,0 +1,150 @@
+.frameViz {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem;
+  border-radius: 14px;
+  background: #111726;
+  border: 1px solid #1a2130;
+  margin-bottom: 1.1rem;
+}
+
+.silhouette {
+  display: grid;
+  place-items: end center;
+  width: 84px;
+  height: 132px;
+}
+
+.frameStats {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.frameStat {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.frameKey {
+  color: #8792a6;
+  font-weight: 700;
+}
+
+.frameVal {
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0.15rem 0.6rem;
+  border-bottom: 1px solid #1a2130;
+  margin-bottom: 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5d6879;
+}
+
+.legendNum {
+  text-align: right;
+  width: 3ch;
+}
+
+.capGroup {
+  margin-bottom: 1.1rem;
+}
+
+.capGroup:last-child {
+  margin-bottom: 0;
+}
+
+.capGroupHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.capDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+}
+
+.capGroupName {
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.capRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  padding: 0.28rem 0.15rem;
+  font-size: 0.8rem;
+}
+
+.capName {
+  color: #cfd7e4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.capMin {
+  text-align: right;
+  width: 3ch;
+  font-weight: 700;
+  color: #5d6879;
+  font-variant-numeric: tabular-nums;
+}
+
+.capMax {
+  text-align: right;
+  width: 3ch;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.capMaxLimited {
+  color: #ff8c5b;
+}
+
+.capBar {
+  grid-column: 1 / -1;
+  height: 4px;
+  border-radius: 999px;
+  background: #1a2130;
+  overflow: hidden;
+  margin-top: -0.05rem;
+}
+
+.capBarFill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.capNote {
+  margin: 0.7rem 0 0;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: #6f7b8e;
+}
+
+.handRow {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.4rem;
+}

@@ -1,0 +1,296 @@
+2026-08-17T18:43:29.021Z 288 start -p 3000 --use-source, started
+2026-08-17T18:43:31.461Z 370 templates, started
+2026-08-17T18:43:31.561Z 370 templates, succeeded
+2026-08-17T18:43:32.856Z 438 status --json, started
+2026-08-17T18:43:32.884Z 438 status --json, succeeded
+2026-08-17T18:43:34.332Z 472 create react-app myplayer-builder --scope sumelse.hoops, started
+2026-08-17T18:43:37.838Z 529 mini-status --json, started
+2026-08-17T18:43:37.894Z 529 mini-status --json, succeeded
+2026-08-17T18:43:37.907Z 531 ls --json, started
+2026-08-17T18:43:37.970Z 531 ls --json, succeeded
+2026-08-17T18:44:05.869Z 472 create react-app myplayer-builder --scope sumelse.hoops, succeeded
+2026-08-17T18:50:00.345Z 1618 run myplayer-builder -p 3001, started
+2026-08-17T18:50:03.196Z 1726 run myplayer-builder -p 3001, started
+2026-08-17T18:51:17.455Z 2332 check-types, started
+2026-08-17T18:51:20.930Z 2332 check-types, succeeded
+2026-08-17T18:56:58.886Z 2478 status --json, started
+2026-08-17T18:56:59.731Z 2501 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-17T18:57:02.356Z 2501 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-17T18:57:02.514Z 2478 status --json, succeeded
+2026-08-17T19:44:36.164Z 3305 check-types, started
+2026-08-17T19:44:39.788Z 3305 check-types, succeeded
+2026-08-17T19:45:03.883Z 3476 test hoops/myplayer-builder, started
+2026-08-17T19:45:08.115Z 3476 test hoops/myplayer-builder, failed
+2026-08-17T19:45:55.234Z 3667 test hoops/myplayer-builder, started
+2026-08-17T19:45:59.547Z 3667 test hoops/myplayer-builder, succeeded
+2026-08-17T19:46:17.711Z 3827 run myplayer-builder -p 3001, started
+2026-08-17T19:47:40.165Z 4080 validate, started
+2026-08-17T19:47:50.903Z 4080 validate, failed
+2026-08-17T19:48:01.292Z 4318 validate, started
+2026-08-17T19:48:12.908Z 4318 validate, failed
+2026-08-17T19:48:21.788Z 4571 validate, started
+2026-08-17T19:48:33.286Z 4571 validate, succeeded
+2026-08-17T20:07:01.990Z 4837 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-17T20:07:04.532Z 4837 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-17T20:10:08.032Z 4950 status --json, started
+2026-08-17T20:10:08.245Z 4973 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-17T20:10:10.806Z 4950 status --json, succeeded
+2026-08-17T20:10:10.896Z 4973 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-17T20:10:39.180Z 5076 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-17T20:10:41.750Z 5076 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-17T20:57:13.058Z 5148 ls --json, started
+2026-08-17T20:57:13.118Z 5148 ls --json, succeeded
+2026-08-17T20:57:13.992Z 5171 mini-status --json, started
+2026-08-17T20:57:14.044Z 5171 mini-status --json, succeeded
+2026-08-18T13:18:14.744Z 183 install --skip-unavailable, started
+2026-08-18T13:18:42.305Z 183 install --skip-unavailable, succeeded
+2026-08-18T13:18:50.670Z 406 status --json, started
+2026-08-18T13:18:53.821Z 406 status --json, succeeded
+2026-08-18T13:18:59.663Z 527 start -p 3000 --use-source, started
+2026-08-18T13:19:05.953Z 662 run myplayer-builder -p 3001, started
+2026-08-18T13:19:14.096Z 837 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-18T13:19:17.097Z 837 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-18T13:21:03.441Z 933 get-deps sumelse.hoops/myplayer-builder --json -c, started
+2026-08-18T13:21:05.980Z 933 get-deps sumelse.hoops/myplayer-builder --json -c, succeeded
+2026-08-18T13:21:31.880Z 1083 server --compile, started
+2026-08-18T13:32:48.409Z 1687 mini-status --json, started
+2026-08-18T13:32:48.465Z 1687 mini-status --json, succeeded
+2026-08-18T13:32:48.505Z 1675 ls --json, started
+2026-08-18T13:32:48.567Z 1675 ls --json, succeeded
+2026-08-18T13:33:07.551Z 1797 mini-status --json, started
+2026-08-18T13:33:07.554Z 1778 ls --json, started
+2026-08-18T13:33:07.609Z 1797 mini-status --json, succeeded
+2026-08-18T13:33:07.622Z 1778 ls --json, succeeded
+2026-08-18T13:33:18.178Z 1869 mini-status --json, started
+2026-08-18T13:33:18.259Z 1869 mini-status --json, succeeded
+2026-08-18T13:33:18.277Z 1888 ls --json, started
+2026-08-18T13:33:18.376Z 1888 ls --json, succeeded
+2026-08-18T13:33:24.185Z 1974 mini-status --json, started
+2026-08-18T13:33:24.228Z 1981 ls --json, started
+2026-08-18T13:33:24.241Z 1974 mini-status --json, succeeded
+2026-08-18T13:33:24.293Z 1981 ls --json, succeeded
+2026-08-18T13:36:13.003Z 2167 ls --json, started
+2026-08-18T13:36:13.031Z 2193 mini-status --json, started
+2026-08-18T13:36:13.069Z 2167 ls --json, succeeded
+2026-08-18T13:36:13.087Z 2193 mini-status --json, succeeded
+2026-08-18T13:36:59.036Z 2334 ls --json, started
+2026-08-18T13:36:59.134Z 2357 mini-status --json, started
+2026-08-18T13:36:59.161Z 2334 ls --json, succeeded
+2026-08-18T13:36:59.244Z 2357 mini-status --json, succeeded
+2026-08-18T13:37:17.803Z 2468 mini-status --json, started
+2026-08-18T13:37:17.848Z 2466 ls --json, started
+2026-08-18T13:37:17.859Z 2468 mini-status --json, succeeded
+2026-08-18T13:37:17.919Z 2466 ls --json, succeeded
+2026-08-18T13:37:34.786Z 2580 mini-status --json, started
+2026-08-18T13:37:34.813Z 2579 ls --json, started
+2026-08-18T13:37:34.851Z 2580 mini-status --json, succeeded
+2026-08-18T13:37:34.885Z 2579 ls --json, succeeded
+2026-08-18T13:37:37.856Z 2674 ls --json, started
+2026-08-18T13:37:37.878Z 2693 mini-status --json, started
+2026-08-18T13:37:37.920Z 2674 ls --json, succeeded
+2026-08-18T13:37:37.933Z 2693 mini-status --json, succeeded
+2026-08-18T13:37:45.222Z 2764 mini-status --json, started
+2026-08-18T13:37:45.274Z 2764 mini-status --json, succeeded
+2026-08-18T13:37:45.305Z 2782 ls --json, started
+2026-08-18T13:37:45.367Z 2782 ls --json, succeeded
+2026-08-18T13:38:22.609Z 2935 mini-status --json, started
+2026-08-18T13:38:22.673Z 2935 mini-status --json, succeeded
+2026-08-18T13:38:22.688Z 2934 ls --json, started
+2026-08-18T13:38:22.751Z 2934 ls --json, succeeded
+2026-08-18T13:40:47.535Z 3243 mini-status --json, started
+2026-08-18T13:40:47.573Z 3244 ls --json, started
+2026-08-18T13:40:47.591Z 3243 mini-status --json, succeeded
+2026-08-18T13:40:47.639Z 3244 ls --json, succeeded
+2026-08-18T13:43:00.098Z 3487 mini-status --json, started
+2026-08-18T13:43:00.124Z 3468 ls --json, started
+2026-08-18T13:43:00.155Z 3487 mini-status --json, succeeded
+2026-08-18T13:43:00.190Z 3468 ls --json, succeeded
+2026-08-18T13:43:03.581Z 3573 mini-status --json, started
+2026-08-18T13:43:03.615Z 3575 ls --json, started
+2026-08-18T13:43:03.642Z 3573 mini-status --json, succeeded
+2026-08-18T13:43:03.690Z 3575 ls --json, succeeded
+2026-08-18T13:43:15.947Z 3667 mini-status --json, started
+2026-08-18T13:43:16.004Z 3667 mini-status --json, succeeded
+2026-08-18T13:43:16.010Z 3669 ls --json, started
+2026-08-18T13:43:16.077Z 3669 ls --json, succeeded
+2026-08-18T13:43:24.393Z 3757 mini-status --json, started
+2026-08-18T13:43:24.451Z 3757 mini-status --json, succeeded
+2026-08-18T13:43:24.458Z 3758 ls --json, started
+2026-08-18T13:43:24.520Z 3758 ls --json, succeeded
+2026-08-18T13:43:35.697Z 3848 mini-status --json, started
+2026-08-18T13:43:35.742Z 3847 ls --json, started
+2026-08-18T13:43:35.757Z 3848 mini-status --json, succeeded
+2026-08-18T13:43:35.805Z 3847 ls --json, succeeded
+2026-08-18T13:43:53.303Z 3946 mini-status --json, started
+2026-08-18T13:43:53.356Z 3945 ls --json, started
+2026-08-18T13:43:53.361Z 3946 mini-status --json, succeeded
+2026-08-18T13:43:53.424Z 3945 ls --json, succeeded
+2026-08-18T13:43:58.231Z 4035 mini-status --json, started
+2026-08-18T13:43:58.279Z 4036 ls --json, started
+2026-08-18T13:43:58.288Z 4035 mini-status --json, succeeded
+2026-08-18T13:43:58.342Z 4036 ls --json, succeeded
+2026-08-18T13:46:13.819Z 4196 mini-status --json, started
+2026-08-18T13:46:13.850Z 4197 ls --json, started
+2026-08-18T13:46:13.879Z 4196 mini-status --json, succeeded
+2026-08-18T13:46:13.913Z 4197 ls --json, succeeded
+2026-08-18T13:52:21.803Z 4609 mini-status --json, started
+2026-08-18T13:52:21.862Z 4609 mini-status --json, succeeded
+2026-08-18T13:52:21.892Z 4627 ls --json, started
+2026-08-18T13:52:21.958Z 4627 ls --json, succeeded
+2026-08-18T13:52:31.050Z 4715 mini-status --json, started
+2026-08-18T13:52:31.097Z 4697 ls --json, started
+2026-08-18T13:52:31.102Z 4715 mini-status --json, succeeded
+2026-08-18T13:52:31.167Z 4697 ls --json, succeeded
+2026-08-18T13:52:42.291Z 4801 mini-status --json, started
+2026-08-18T13:52:42.340Z 4802 ls --json, started
+2026-08-18T13:52:42.352Z 4801 mini-status --json, succeeded
+2026-08-18T13:52:42.405Z 4802 ls --json, succeeded
+2026-08-18T13:52:51.322Z 4890 mini-status --json, started
+2026-08-18T13:52:51.357Z 4891 ls --json, started
+2026-08-18T13:52:51.378Z 4890 mini-status --json, succeeded
+2026-08-18T13:52:51.421Z 4891 ls --json, succeeded
+2026-08-18T13:52:57.739Z 4981 mini-status --json, started
+2026-08-18T13:52:57.792Z 4975 ls --json, started
+2026-08-18T13:52:57.792Z 4981 mini-status --json, succeeded
+2026-08-18T13:52:57.856Z 4975 ls --json, succeeded
+2026-08-18T13:53:04.103Z 5088 mini-status --json, started
+2026-08-18T13:53:04.144Z 5071 ls --json, started
+2026-08-18T13:53:04.162Z 5088 mini-status --json, succeeded
+2026-08-18T13:53:04.213Z 5071 ls --json, succeeded
+2026-08-18T13:53:06.845Z 5143 mini-status --json, started
+2026-08-18T13:53:06.893Z 5155 ls --json, started
+2026-08-18T13:53:06.901Z 5143 mini-status --json, succeeded
+2026-08-18T13:53:06.959Z 5155 ls --json, succeeded
+2026-08-18T13:53:10.713Z 5243 mini-status --json, started
+2026-08-18T13:53:10.768Z 5243 mini-status --json, succeeded
+2026-08-18T13:53:10.768Z 5241 ls --json, started
+2026-08-18T13:53:10.833Z 5241 ls --json, succeeded
+2026-08-18T13:53:21.563Z 5334 mini-status --json, started
+2026-08-18T13:53:21.619Z 5334 mini-status --json, succeeded
+2026-08-18T13:53:21.620Z 5335 ls --json, started
+2026-08-18T13:53:21.686Z 5335 ls --json, succeeded
+2026-08-18T13:53:24.496Z 5444 mini-status --json, started
+2026-08-18T13:53:24.536Z 5426 ls --json, started
+2026-08-18T13:53:24.563Z 5444 mini-status --json, succeeded
+2026-08-18T13:53:24.620Z 5426 ls --json, succeeded
+2026-08-18T14:04:55.030Z 5542 mini-status --json, started
+2026-08-18T14:04:55.076Z 5544 ls --json, started
+2026-08-18T14:04:55.085Z 5542 mini-status --json, succeeded
+2026-08-18T14:04:55.139Z 5544 ls --json, succeeded
+2026-08-18T14:04:58.578Z 5644 mini-status --json, started
+2026-08-18T14:04:58.628Z 5626 ls --json, started
+2026-08-18T14:04:58.633Z 5644 mini-status --json, succeeded
+2026-08-18T14:04:58.691Z 5626 ls --json, succeeded
+2026-08-18T14:05:03.581Z 5746 mini-status --json, started
+2026-08-18T14:05:03.612Z 5728 ls --json, started
+2026-08-18T14:05:03.637Z 5746 mini-status --json, succeeded
+2026-08-18T14:05:03.676Z 5728 ls --json, succeeded
+2026-08-18T14:05:10.189Z 5812 mini-status --json, started
+2026-08-18T14:05:10.253Z 5812 mini-status --json, succeeded
+2026-08-18T14:05:10.256Z 5824 ls --json, started
+2026-08-18T14:05:10.320Z 5824 ls --json, succeeded
+2026-08-18T14:05:17.925Z 5902 mini-status --json, started
+2026-08-18T14:05:18.003Z 5902 mini-status --json, succeeded
+2026-08-18T14:05:18.023Z 5921 ls --json, started
+2026-08-18T14:05:18.117Z 5921 ls --json, succeeded
+2026-08-18T14:05:23.142Z 6008 ls --json, started
+2026-08-18T14:05:23.210Z 6008 ls --json, succeeded
+2026-08-18T14:05:23.445Z 6031 mini-status --json, started
+2026-08-18T14:05:23.502Z 6031 mini-status --json, succeeded
+2026-08-18T14:05:26.866Z 6098 mini-status --json, started
+2026-08-18T14:05:26.919Z 6098 mini-status --json, succeeded
+2026-08-18T14:05:27.018Z 6121 ls --json, started
+2026-08-18T14:05:27.079Z 6121 ls --json, succeeded
+2026-08-18T14:05:31.485Z 6195 mini-status --json, started
+2026-08-18T14:05:31.524Z 6183 ls --json, started
+2026-08-18T14:05:31.544Z 6195 mini-status --json, succeeded
+2026-08-18T14:05:31.586Z 6183 ls --json, succeeded
+2026-08-18T14:05:38.368Z 6267 mini-status --json, started
+2026-08-18T14:05:38.424Z 6267 mini-status --json, succeeded
+2026-08-18T14:05:38.452Z 6286 ls --json, started
+2026-08-18T14:05:38.513Z 6286 ls --json, succeeded
+2026-08-18T14:06:15.439Z 6370 mini-status --json, started
+2026-08-18T14:06:15.500Z 6370 mini-status --json, succeeded
+2026-08-18T14:06:15.502Z 6372 ls --json, started
+2026-08-18T14:06:15.567Z 6372 ls --json, succeeded
+2026-08-18T14:06:24.538Z 6466 mini-status --json, started
+2026-08-18T14:06:24.588Z 6460 ls --json, started
+2026-08-18T14:06:24.599Z 6466 mini-status --json, succeeded
+2026-08-18T14:06:24.649Z 6460 ls --json, succeeded
+2026-08-18T14:06:29.474Z 6550 mini-status --json, started
+2026-08-18T14:06:29.516Z 6556 ls --json, started
+2026-08-18T14:06:29.534Z 6550 mini-status --json, succeeded
+2026-08-18T14:06:29.584Z 6556 ls --json, succeeded
+2026-08-18T14:15:20.801Z 6677 mini-status --json, started
+2026-08-18T14:15:20.854Z 6677 mini-status --json, succeeded
+2026-08-18T14:15:20.896Z 6696 ls --json, started
+2026-08-18T14:15:20.967Z 6696 ls --json, succeeded
+2026-08-18T14:15:31.942Z 6776 mini-status --json, started
+2026-08-18T14:15:31.996Z 6776 mini-status --json, succeeded
+2026-08-18T14:15:32.489Z 6799 ls --json, started
+2026-08-18T14:15:32.550Z 6799 ls --json, succeeded
+2026-08-18T14:15:37.831Z 6889 mini-status --json, started
+2026-08-18T14:15:37.876Z 6878 ls --json, started
+2026-08-18T14:15:37.885Z 6889 mini-status --json, succeeded
+2026-08-18T14:15:37.942Z 6878 ls --json, succeeded
+2026-08-18T14:15:50.762Z 7023 mini-status --json, started
+2026-08-18T14:15:50.792Z 7018 mini-status --json, started
+2026-08-18T14:15:50.823Z 7023 mini-status --json, succeeded
+2026-08-18T14:15:50.826Z 7022 ls --json, started
+2026-08-18T14:15:50.828Z 7021 ls --json, started
+2026-08-18T14:15:50.871Z 7018 mini-status --json, succeeded
+2026-08-18T14:15:50.896Z 7021 ls --json, succeeded
+2026-08-18T14:15:50.907Z 7022 ls --json, succeeded
+2026-08-18T14:15:55.541Z 7159 mini-status --json, started
+2026-08-18T14:15:55.590Z 7141 ls --json, started
+2026-08-18T14:15:55.596Z 7159 mini-status --json, succeeded
+2026-08-18T14:15:55.656Z 7141 ls --json, succeeded
+2026-08-18T14:16:01.259Z 7244 mini-status --json, started
+2026-08-18T14:16:01.309Z 7245 ls --json, started
+2026-08-18T14:16:01.316Z 7244 mini-status --json, succeeded
+2026-08-18T14:16:01.374Z 7245 ls --json, succeeded
+2026-08-18T14:17:01.623Z 7334 mini-status --json, started
+2026-08-18T14:17:01.658Z 7336 ls --json, started
+2026-08-18T14:17:01.676Z 7334 mini-status --json, succeeded
+2026-08-18T14:17:01.721Z 7336 ls --json, succeeded
+2026-08-18T14:26:31.263Z 7501 ls --json, started
+2026-08-18T14:26:31.304Z 7520 mini-status --json, started
+2026-08-18T14:26:31.326Z 7501 ls --json, succeeded
+2026-08-18T14:26:31.358Z 7520 mini-status --json, succeeded
+2026-08-18T14:27:32.241Z 7645 mini-status --json, started
+2026-08-18T14:27:32.285Z 7646 ls --json, started
+2026-08-18T14:27:32.295Z 7645 mini-status --json, succeeded
+2026-08-18T14:27:32.348Z 7646 ls --json, succeeded
+2026-08-18T14:27:48.364Z 7771 mini-status --json, started
+2026-08-18T14:27:48.408Z 7770 ls --json, started
+2026-08-18T14:27:48.420Z 7771 mini-status --json, succeeded
+2026-08-18T14:27:48.475Z 7770 ls --json, succeeded
+2026-08-18T14:28:06.233Z 7864 mini-status --json, started
+2026-08-18T14:28:06.337Z 7864 mini-status --json, succeeded
+2026-08-18T14:28:06.417Z 7862 ls --json, started
+2026-08-18T14:28:06.533Z 7862 ls --json, succeeded
+2026-08-18T14:28:19.728Z 8008 mini-status --json, started
+2026-08-18T14:28:19.754Z 7989 ls --json, started
+2026-08-18T14:28:19.783Z 8008 mini-status --json, succeeded
+2026-08-18T14:28:19.819Z 7989 ls --json, succeeded
+2026-08-18T14:28:26.854Z 8093 mini-status --json, started
+2026-08-18T14:28:26.896Z 8094 ls --json, started
+2026-08-18T14:28:26.908Z 8093 mini-status --json, succeeded
+2026-08-18T14:28:26.960Z 8094 ls --json, succeeded
+2026-08-18T14:28:33.906Z 8184 mini-status --json, started
+2026-08-18T14:28:33.962Z 8184 mini-status --json, succeeded
+2026-08-18T14:28:34.063Z 8203 ls --json, started
+2026-08-18T14:28:34.128Z 8203 ls --json, succeeded
+2026-08-18T14:28:50.855Z 8308 mini-status --json, started
+2026-08-18T14:28:50.906Z 8309 ls --json, started
+2026-08-18T14:28:50.918Z 8308 mini-status --json, succeeded
+2026-08-18T14:28:50.980Z 8309 ls --json, succeeded
+2026-08-18T14:29:19.922Z 8431 mini-status --json, started
+2026-08-18T14:29:19.966Z 8430 ls --json, started
+2026-08-18T14:29:19.979Z 8431 mini-status --json, succeeded
+2026-08-18T14:29:20.029Z 8430 ls --json, succeeded
+2026-08-18T14:29:28.924Z 8535 mini-status --json, started
+2026-08-18T14:29:28.980Z 8535 mini-status --json, succeeded
+2026-08-18T14:29:29.038Z 8554 ls --json, started
+2026-08-18T14:29:29.100Z 8554 ls --json, succeeded
+2026-08-18T14:40:00.748Z 9122 server --port 4266 --compile, started
