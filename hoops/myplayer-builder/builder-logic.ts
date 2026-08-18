@@ -20,6 +20,10 @@ import type {
   Takeover,
 } from './builder-types.js';
 
+export function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
 /**
  * Reverse of {@link ATTRIBUTE_LINKS} — for each attribute, the attributes that
  * lean on it. Lowering an attribute drags these down with it.
@@ -114,6 +118,41 @@ export function remainingPoints(ratings: Ratings): number {
  * @param body the player's physical profile.
  * @returns the ceiling value between 40 and 99.
  */
+
+export function getWeightRange(position: Position, height: number): [number, number] {
+  switch (position) {
+    case 'PG':
+      return [
+        Math.round(160 + (height - 72) * 3),
+        Math.round(185 + (height - 72) * 5),
+      ];
+
+    case 'SG':
+      return [
+        Math.round(180 + (height - 72) * 3),
+        Math.round(185 + (height - 72) * 5),
+      ];
+
+    case 'SF':
+      return [
+        Math.round(190 + (height - 72) * 4),
+        Math.round(195 + (height - 72) * 5),
+      ];
+
+    case 'PF':
+      return [
+        Math.round(205 + (height - 72) * 4),
+        Math.round(220 + (height - 72) * 5),
+      ];
+
+    case 'C':
+      return [
+        Math.round(220 + (height - 72) * 4),
+        Math.round(295 + (height - 72) * 5),
+      ];
+  }
+}
+
 export function bodyCap(attributeId: string, position: Position, body: Body): number {
   const base = POSITION_CAPS[position][attributeId] ?? 99;
   const heightDelta = body.height - 78;

@@ -6,7 +6,12 @@ import {
   POSITION_BLURB,
   POSITION_HEIGHT,
 } from './builder-data.js';
-import { capFor, formatHeight } from './builder-logic.js';
+import {
+  capFor,
+  formatHeight,
+  getWeightRange,
+  clamp,
+} from './builder-logic.js';
 import type { Body, Handedness, Position } from './builder-types.js';
 import shared from './step-shared.module.css';
 import styles from './step-body.module.css';
@@ -33,14 +38,31 @@ const HANDS: Handedness[] = ['Left', 'Right'];
  * @param props the body state and change handlers.
  * @returns the rendered body step.
  */
-export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) {
+export function StepBody({
+  position,
+  body,
+  onPosition,
+  onBody,
+}: StepBodyProps) {
   const [minHeight, maxHeight] = POSITION_HEIGHT[position];
+  const [minWeight, maxWeight] = getWeightRange(position, body.height);
   const reach = body.wingspan - body.height;
   // Scale the silhouette across the full legal height band for this position.
   const heightRatio = (body.height - 69) / (89 - 69);
   const figureHeight = 70 + heightRatio * 56;
   const figureWidth = 16 + ((body.weight - 160) / 130) * 16;
   const armSpan = 20 + ((body.wingspan - body.height + 2) / 12) * 22;
+  const handlePositionChange = (newPosition: Position) => {
+    const [newMinWeight, newMaxWeight] = getWeightRange(
+      newPosition,
+      body.height
+    );
+
+    onPosition(newPosition);
+    onBody({
+      weight: clamp(body.weight, newMinWeight, newMaxWeight),
+    });
+  };
 
   return (
     <div className={`${shared.step} ${shared.stepTwoCol}`}>
@@ -48,8 +70,8 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
         <header className={shared.stepHeader}>
           <h2 className={shared.stepTitle}>Build your frame</h2>
           <p className={shared.stepSub}>
-            Your body decides what you can become. Height, weight and wingspan set the ceiling on
-            every attribute before you spend a single point.
+            Your body decides what you can become. Height, weight and wingspan
+            set the ceiling on every attribute before you spend a single point.
           </p>
         </header>
 
@@ -62,7 +84,7 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
               <button
                 key={pos}
                 type="button"
-                onClick={() => onPosition(pos)}
+                onClick={() => handlePositionChange(pos)}
                 className={`${shared.segBtn} ${position === pos ? shared.segBtnActive : ''}`}
               >
                 {pos}
@@ -79,10 +101,29 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
           </div>
 
           <div className={styles.frameViz}>
-            <svg className={styles.silhouette} width="84" height="132" viewBox="0 0 84 132" role="img" aria-label="Player frame preview">
-              <line x1="6" y1="130" x2="78" y2="130" stroke="#1e2634" strokeWidth="2" />
+            <svg
+              className={styles.silhouette}
+              width="84"
+              height="132"
+              viewBox="0 0 84 132"
+              role="img"
+              aria-label="Player frame preview"
+            >
+              <line
+                x1="6"
+                y1="130"
+                x2="78"
+                y2="130"
+                stroke="#1e2634"
+                strokeWidth="2"
+              />
               <g transform={`translate(42, ${128 - figureHeight})`}>
-                <circle cx="0" cy={figureHeight * 0.09} r={figureHeight * 0.09} fill="#ffd23f" />
+                <circle
+                  cx="0"
+                  cy={figureHeight * 0.09}
+                  r={figureHeight * 0.09}
+                  fill="#ffd23f"
+                />
                 <rect
                   x={-figureWidth / 2}
                   y={figureHeight * 0.2}
@@ -100,14 +141,30 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
-                <rect x={-figureWidth / 2.6} y={figureHeight * 0.6} width={figureWidth / 3.2} height={figureHeight * 0.4} rx="3" fill="#ffd23f" />
-                <rect x={figureWidth / 8} y={figureHeight * 0.6} width={figureWidth / 3.2} height={figureHeight * 0.4} rx="3" fill="#ffd23f" />
+                <rect
+                  x={-figureWidth / 2.6}
+                  y={figureHeight * 0.6}
+                  width={figureWidth / 3.2}
+                  height={figureHeight * 0.4}
+                  rx="3"
+                  fill="#ffd23f"
+                />
+                <rect
+                  x={figureWidth / 8}
+                  y={figureHeight * 0.6}
+                  width={figureWidth / 3.2}
+                  height={figureHeight * 0.4}
+                  rx="3"
+                  fill="#ffd23f"
+                />
               </g>
             </svg>
             <div className={styles.frameStats}>
               <div className={styles.frameStat}>
                 <span className={styles.frameKey}>Height</span>
-                <span className={styles.frameVal}>{formatHeight(body.height)}</span>
+                <span className={styles.frameVal}>
+                  {formatHeight(body.height)}
+                </span>
               </div>
               <div className={styles.frameStat}>
                 <span className={styles.frameKey}>Weight</span>
@@ -115,7 +172,9 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
               </div>
               <div className={styles.frameStat}>
                 <span className={styles.frameKey}>Wingspan</span>
-                <span className={styles.frameVal}>{formatHeight(body.wingspan)}</span>
+                <span className={styles.frameVal}>
+                  {formatHeight(body.wingspan)}
+                </span>
               </div>
               <div className={styles.frameStat}>
                 <span className={styles.frameKey}>Reach</span>
@@ -130,7 +189,9 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
           <div className={shared.sliderRow}>
             <div className={shared.sliderTop}>
               <span className={shared.sliderLabel}>Height</span>
-              <span className={shared.sliderValue}>{formatHeight(body.height)}</span>
+              <span className={shared.sliderValue}>
+                {formatHeight(body.height)}
+              </span>
             </div>
             <input
               className={shared.range}
@@ -155,35 +216,37 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
             <input
               className={shared.range}
               type="range"
-              min={160}
-              max={290}
+              min={minWeight}
+              max={maxWeight}
               value={body.weight}
               aria-label="Weight"
               onChange={(e) => onBody({ weight: Number(e.target.value) })}
             />
             <div className={shared.rangeEnds}>
-              <span>160</span>
-              <span>290</span>
+              <span>{minWeight}</span>
+              <span>{maxWeight}</span>
             </div>
           </div>
 
           <div className={shared.sliderRow}>
             <div className={shared.sliderTop}>
               <span className={shared.sliderLabel}>Wingspan</span>
-              <span className={shared.sliderValue}>{formatHeight(body.wingspan)}</span>
+              <span className={shared.sliderValue}>
+                {formatHeight(body.wingspan)}
+              </span>
             </div>
             <input
               className={shared.range}
               type="range"
               min={body.height - 2}
-              max={body.height + 10}
+              max={body.height + 6}
               value={body.wingspan}
               aria-label="Wingspan"
               onChange={(e) => onBody({ wingspan: Number(e.target.value) })}
             />
             <div className={shared.rangeEnds}>
               <span>{formatHeight(body.height - 2)}</span>
-              <span>{formatHeight(body.height + 10)}</span>
+              <span>{formatHeight(body.height + 6)}</span>
             </div>
           </div>
 
@@ -224,7 +287,10 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
           {CATEGORIES.map((cat) => (
             <div key={cat.id} className={styles.capGroup}>
               <div className={styles.capGroupHead}>
-                <span className={styles.capDot} style={{ background: cat.color }} />
+                <span
+                  className={styles.capDot}
+                  style={{ background: cat.color }}
+                />
                 <span className={styles.capGroupName}>{cat.name}</span>
               </div>
               {ATTRIBUTES.filter((a) => a.category === cat.id).map((attr) => {
@@ -234,14 +300,20 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
                     <div className={styles.capRow}>
                       <span className={styles.capName}>{attr.name}</span>
                       <span className={styles.capMin}>{MIN_RATING}</span>
-                      <span className={`${styles.capMax} ${max < 90 ? styles.capMaxLimited : ''}`}>
+                      <span
+                        className={`${styles.capMax} ${max < 90 ? styles.capMaxLimited : ''}`}
+                      >
                         {max}
                       </span>
                     </div>
                     <div className={styles.capBar}>
                       <div
                         className={styles.capBarFill}
-                        style={{ width: `${(max / 99) * 100}%`, background: cat.color, opacity: 0.65 }}
+                        style={{
+                          width: `${(max / 99) * 100}%`,
+                          background: cat.color,
+                          opacity: 0.65,
+                        }}
                       />
                     </div>
                   </div>
@@ -251,8 +323,9 @@ export function StepBody({ position, body, onPosition, onBody }: StepBodyProps) 
           ))}
 
           <p className={styles.capNote}>
-            Ceilings shown in orange are being held back by your frame or by an attribute this one
-            depends on. Go shorter and lighter for quickness, taller and heavier for interior work.
+            Ceilings shown in orange are being held back by your frame or by an
+            attribute this one depends on. Go shorter and lighter for quickness,
+            taller and heavier for interior work.
           </p>
         </section>
       </div>

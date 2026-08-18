@@ -15,6 +15,7 @@ import {
   remainingPoints,
   spentPoints,
   takeoverBreakdown,
+  getWeightRange
 } from './builder-logic.js';
 import type { Body, Position, Ratings, StepId } from './builder-types.js';
 import { StepAttributes } from './step-attributes.js';
@@ -33,13 +34,26 @@ const DEFAULT_BODY: Body = { height: 78, weight: 215, wingspan: 82, hand: 'Right
  * @returns a body clamped to the position's height range.
  */
 function clampBody(body: Body, position: Position): Body {
-  const [min, max] = POSITION_HEIGHT[position];
-  const height = Math.min(Math.max(body.height, min), max);
+  const [minHeight, maxHeight] = POSITION_HEIGHT[position];
+
+  const height = Math.min(
+    Math.max(body.height, minHeight),
+    maxHeight
+  );
+
+  const [minWeight, maxWeight] = getWeightRange(position, height);
+
   return {
     ...body,
     height,
-    weight: Math.min(Math.max(body.weight, 160), 290),
-    wingspan: Math.min(Math.max(body.wingspan, height - 2), height + 10),
+    weight: Math.min(
+      Math.max(body.weight, minWeight),
+      maxWeight
+    ),
+    wingspan: Math.min(
+      Math.max(body.wingspan, height - 2),
+      height + 6
+    ),
   };
 }
 

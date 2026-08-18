@@ -300,7 +300,7 @@ export const POSITION_CAPS: Record<Position, Partial<Record<string, number>>> = 
 
 /** Height ranges (inches) allowed per position. */
 export const POSITION_HEIGHT: Record<Position, [number, number]> = {
-  PG: [67, 78],
+  PG: [67, 79],
   SG: [76, 80],
   SF: [77, 81],
   PF: [80, 83],

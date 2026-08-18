@@ -121,3 +121,9 @@ save "testing save command"
 lsof -i :5173
 kill <PID>
 bit run myplayer-builder --port 5173
+save "Tweaked some stuff"
+bit run myplayer-builder --port 5173
+fuser -k 5173/tcp
+lsof -i :5173
+bit run myplayer-builder --port 5173
+lsof -i :5173
