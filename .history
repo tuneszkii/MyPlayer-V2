@@ -112,3 +112,6 @@ cd ~/myplayer-builder
 mkdir -p scripts
 nano scripts/save
 chmod +x scripts/save
+./scripts/save "Move save script into repository"
+echo 'export PATH="$HOME/myplayer-builder/scripts:$PATH"' >> ~/.bashrc
+source ~/.bashrc
