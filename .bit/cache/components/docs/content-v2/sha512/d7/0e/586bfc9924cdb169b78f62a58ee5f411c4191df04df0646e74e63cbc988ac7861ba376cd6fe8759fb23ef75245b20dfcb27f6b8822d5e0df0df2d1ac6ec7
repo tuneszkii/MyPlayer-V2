@@ -1,1 +1,0 @@
-[{"filePath":"badges-panel.tsx","name":"BadgesPanel","description":"Live badge list. Every badge shows its current tier and the\nattribute plus threshold needed to reach the next one.","properties":[{"name":"ratings","description":"Current ratings map used to resolve badge tiers.","required":true,"type":"Ratings"}],"access":"public","methods":[],"args":[],"examples":[]}]

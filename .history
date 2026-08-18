@@ -95,3 +95,9 @@ source ~/.bashrc
 save "test"
 git config --global user.email "tuneszkiiii@gmail.com"
 git config --global user.name "Chris"
+save "test"
+git log --oneline -5
+cat .gitignore
+nano .gitignore
+git rm -r --cached .bit
+git status
