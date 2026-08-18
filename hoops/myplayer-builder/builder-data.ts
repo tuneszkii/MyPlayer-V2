@@ -88,16 +88,29 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
 
   // Playmaking: you cannot move faster with the ball than without it.
   passAccuracy: [{ attr: 'ballHandle', gap: 14 }],
-  ballHandle: [{ attr: 'speedWithBall', gap: 6 }],
-  speedWithBall: [{ attr: 'speed', gap: 0 }],
+  ballHandle: [
+    { attr: 'speedWithBall', gap: 6 },
+    { attr: 'passAccuracy', gap: 28 }
+  ],
+  speedWithBall: [
+    { attr: 'speed', gap: 0 },
+    { attr: 'ballHandle', gap: 24 }
+  ],
 
   // Defense leans on frame and footwork.
   interiorDefense: [
-    { attr: 'strength', gap: 8 },
-    { attr: 'defensiveRebound', gap: 23 }
+    { attr: 'strength', gap: 14 },
+    { attr: 'defensiveRebound', gap: 23 },
+    { attr: 'block', gap: 19 }
   ],
-  perimeterDefense: [{ attr: 'agility', gap: 8 }],
-  steal: [{ attr: 'perimeterDefense', gap: 8 }],
+  perimeterDefense: [
+    { attr: 'agility', gap: 8 },
+    { attr: 'steal', gap: 22 }
+  ],
+  steal: [
+    { attr: 'perimeterDefense', gap: 12 },
+    { attr: 'agility', gap: 16 }
+  ],
   block: [
     { attr: 'vertical', gap: 8 },
     { attr: 'interiorDefense', gap: 10 },
@@ -115,14 +128,23 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
   ],
 
   // Physicals: speed rides on agility, bounce rides on agility.
-  speed: [{ attr: 'agility', gap: 8 }],
-  vertical: [{ attr: 'agility', gap: 14 }],
+  speed: [
+    { attr: 'agility', gap: 8 },
+    { attr: 'stamina', gap: 17 }
+  ],
+  vertical: [
+    { attr: 'agility', gap: 14 },
+    { attr: 'drivingDunk', gap: 22 }
+  ],
+  agility: [
+    { attr: 'speed', gap: 14 },
+    { attr: 'perimeterDefense', gap: 18 }
+  ],
+  stamina: [{ attr: 'speed', gap: 17 }],
 
   // Roots — nothing sits beneath these.
   closeShot: [],
-  agility: [],
   strength: [],
-  stamina: [],
 };
 
 /** Badges unlocked by attribute thresholds. */

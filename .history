@@ -8,3 +8,13 @@ git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
 cd /home/user/myplayer-builder
 git status
 git add
+git add .
+git commit -m "Initial commit"
+git config user.email "tuneszkiiii@gmail.com"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "Chris"
+git commit -m "Initial commit"
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+git branch -M main
+git push -u origin main
+git add
