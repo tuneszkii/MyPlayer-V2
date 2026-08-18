@@ -127,3 +127,19 @@ fuser -k 5173/tcp
 lsof -i :5173
 bit run myplayer-builder --port 5173
 lsof -i :5173
+save "Added weight logic and tampered with height and wingspam"
+cd ~/myplayer-builder
+grep -R "function capFor\|capFor" hoops/myplayer-builder --exclude-dir=node_modules
+sed -n '1,260p' hoops/myplayer-builder/builder-logic.ts
+grep -n -A100 -B20 "export function capFor" hoops/myplayer-builder/builder-logic.ts
+grep -n -A120 "POSITION_CAPS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "ATTRIBUTE_LINKS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "POSITION_CAPS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "ATTRIBUTE_LINKS" hoops/myplayer-builder/builder-data.ts
+cd ~/myplayer-builder
+npm test
+cd ~/myplayer-builder
+npm test
+cat package.json
+npm run
+npm list vitest

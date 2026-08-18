@@ -153,25 +153,117 @@ export function getWeightRange(position: Position, height: number): [number, num
   }
 }
 
-export function bodyCap(attributeId: string, position: Position, body: Body): number {
+export function bodyCap(
+  attributeId: string,
+  position: Position,
+  body: Body,
+): number {
   const base = POSITION_CAPS[position][attributeId] ?? 99;
+
   const heightDelta = body.height - 78;
+  const weightDelta = body.weight - 215;
+  const wingspanDelta = body.wingspan - body.height;
+
   let modifier = 0;
-  if (['speed', 'agility', 'speedWithBall', 'ballHandle', 'threePoint'].includes(attributeId)) {
-    modifier = -heightDelta * 1.5;
-  }
+
+  /*
+   * HEIGHT
+   *
+   * Taller players gain size-based attributes but lose some
+   * quickness/handling.
+   */
+
   if (
-    ['interiorDefense', 'block', 'standingDunk', 'offensiveRebound', 'defensiveRebound', 'postControl'].includes(
-      attributeId,
-    )
+    ['speed', 'agility', 'speedWithBall', 'ballHandle'].includes(attributeId)
   ) {
-    modifier = heightDelta * 1.5;
+    modifier -= heightDelta * 1.5;
   }
-  if (attributeId === 'strength') modifier = (body.weight - 215) * 0.08;
-  if (['block', 'steal', 'perimeterDefense'].includes(attributeId)) {
-    modifier += (body.wingspan - body.height) * 0.8;
+
+  if (
+    [
+      'interiorDefense',
+      'block',
+      'standingDunk',
+      'offensiveRebound',
+      'defensiveRebound',
+      'postControl',
+    ].includes(attributeId)
+  ) {
+    modifier += heightDelta * 1.5;
   }
-  return Math.max(40, Math.min(99, Math.round(base + modifier)));
+
+  /*
+   * WEIGHT
+   *
+   * Heavier players gain strength, interior presence and rebounding,
+   * but lose some movement.
+   */
+
+  if (attributeId === 'strength') {
+    modifier += weightDelta * 0.18;
+  }
+
+  if (
+    ['interiorDefense', 'postControl', 'standingDunk'].includes(attributeId)
+  ) {
+    modifier += weightDelta * 0.08;
+  }
+
+  if (
+    ['offensiveRebound', 'defensiveRebound'].includes(attributeId)
+  ) {
+    modifier += weightDelta * 0.06;
+  }
+
+  if (
+    ['speed', 'agility', 'speedWithBall', 'ballHandle'].includes(attributeId)
+  ) {
+    modifier -= weightDelta * 0.06;
+  }
+
+  /*
+   * WINGSPAN
+   *
+   * Longer arms help defensive range and rebounding.
+   */
+
+  if (
+    [
+      'block',
+      'steal',
+      'perimeterDefense',
+      'defensiveRebound',
+    ].includes(attributeId)
+  ) {
+    modifier += wingspanDelta * 1.5;
+  }
+
+  if (
+    ['offensiveRebound', 'standingDunk'].includes(attributeId)
+  ) {
+    modifier += wingspanDelta * 0.75;
+  }
+
+  /*
+   * VERTICAL
+   *
+   * Height and wingspan shouldn't directly create huge vertical
+   * ceilings. Keep this mostly athletic.
+   */
+
+  if (attributeId === 'vertical') {
+    modifier -= Math.max(0, heightDelta) * 0.5;
+    modifier += Math.max(0, -heightDelta) * 0.25;
+  }
+
+  /*
+   * Final ceiling.
+   */
+
+  return Math.max(
+    MIN_RATING,
+    Math.min(99, Math.round(base + modifier)),
+  );
 }
 
 /**
