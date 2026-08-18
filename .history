@@ -101,3 +101,4 @@ cat .gitignore
 nano .gitignore
 git rm -r --cached .bit
 git status
+save "Ignore Bit workspace files"
