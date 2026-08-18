@@ -115,3 +115,5 @@ chmod +x scripts/save
 ./scripts/save "Move save script into repository"
 echo 'export PATH="$HOME/myplayer-builder/scripts:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+save "Test repository save command"
+rm ~/.local/bin/save
