@@ -105,3 +105,10 @@ save "Ignore Bit workspace files"
 save "Test"
 cat ~/.local/bin/save
 nano ~/.local/bin/save
+save "test single run"
+cd ~/myplayer-builder
+bit run myplayer-builder --port 5173
+cd ~/myplayer-builder
+mkdir -p scripts
+nano scripts/save
+chmod +x scripts/save
