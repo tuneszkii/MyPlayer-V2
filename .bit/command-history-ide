@@ -676,3 +676,97 @@
 2026-08-18T15:42:56.738Z 2883 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
 2026-08-18T15:42:56.740Z 8768 show sumelse.hoops/myplayer-builder, started
 2026-08-18T15:42:56.741Z 8768 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T16:20:07.458Z 6671 version, started
+2026-08-18T16:20:07.460Z 6671 version, succeeded
+2026-08-18T16:20:07.466Z 7685 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T16:20:07.478Z 7685 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T16:20:07.485Z 5050 getCurrentLaneObject(), started
+2026-08-18T16:20:07.486Z 2340 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T16:20:07.487Z 6422 status  --ignoreCircularDependencies, started
+2026-08-18T16:20:07.488Z 5050 getCurrentLaneObject(), succeeded
+2026-08-18T16:20:07.530Z 2340 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T16:20:07.542Z 1973 getCurrentLaneName(), started
+2026-08-18T16:20:07.544Z 1973 getCurrentLaneName(), succeeded
+2026-08-18T16:20:07.555Z 1551 show sumelse.hoops/myplayer-builder, started
+2026-08-18T16:20:11.502Z 1551 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T16:20:11.517Z 6422 status  --ignoreCircularDependencies, succeeded
+2026-08-18T16:20:11.523Z 4630 getModifiedByConfig(), started
+2026-08-18T16:20:11.526Z 4630 getModifiedByConfig(), succeeded
+2026-08-18T16:33:41.422Z 2067 status  --ignoreCircularDependencies, started
+2026-08-18T16:33:41.500Z 2067 status  --ignoreCircularDependencies, succeeded
+2026-08-18T16:33:41.504Z 1664 getModifiedByConfig(), started
+2026-08-18T16:33:41.505Z 1664 getModifiedByConfig(), succeeded
+2026-08-18T16:44:18.475Z 9946 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T16:44:18.483Z 9946 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T16:44:18.487Z 6662 show sumelse.hoops/myplayer-builder, started
+2026-08-18T16:44:18.488Z 6662 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T16:44:32.781Z 9826 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, started
+2026-08-18T16:44:32.788Z 9826 mini-status sumelse.hoops/myplayer-builder --showIssues --ignoreCircularDependencies, succeeded
+2026-08-18T16:44:32.799Z 6905 show sumelse.hoops/myplayer-builder, started
+2026-08-18T16:44:32.800Z 6905 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T18:00:07.147Z 7014 version, started
+2026-08-18T18:00:07.150Z 7014 version, succeeded
+2026-08-18T18:00:07.158Z 887 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T18:00:07.168Z 887 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T18:00:07.178Z 4425 getCurrentLaneObject(), started
+2026-08-18T18:00:07.179Z 5082 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T18:00:07.180Z 1781 status  --ignoreCircularDependencies, started
+2026-08-18T18:00:07.181Z 4425 getCurrentLaneObject(), succeeded
+2026-08-18T18:00:07.223Z 5082 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T18:00:07.238Z 843 getCurrentLaneName(), started
+2026-08-18T18:00:07.240Z 843 getCurrentLaneName(), succeeded
+2026-08-18T18:00:10.489Z 1781 status  --ignoreCircularDependencies, succeeded
+2026-08-18T18:00:10.493Z 6522 getModifiedByConfig(), started
+2026-08-18T18:00:10.495Z 6522 getModifiedByConfig(), succeeded
+2026-08-18T18:00:11.304Z 2137 version, started
+2026-08-18T18:00:11.305Z 2137 version, succeeded
+2026-08-18T18:00:11.380Z 913 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T18:00:11.381Z 913 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T18:00:11.388Z 1861 getCurrentLaneObject(), started
+2026-08-18T18:00:11.389Z 7706 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T18:00:11.390Z 6704 status  --ignoreCircularDependencies, started
+2026-08-18T18:00:11.393Z 1861 getCurrentLaneObject(), succeeded
+2026-08-18T18:00:11.401Z 7706 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T18:00:11.401Z 6704 status  --ignoreCircularDependencies, succeeded
+2026-08-18T18:00:11.481Z 8785 getCurrentLaneName(), started
+2026-08-18T18:00:11.481Z 8785 getCurrentLaneName(), succeeded
+2026-08-18T18:00:11.501Z 9738 getModifiedByConfig(), started
+2026-08-18T18:00:11.503Z 9738 getModifiedByConfig(), succeeded
+2026-08-18T18:00:23.262Z 3281 show sumelse.hoops/myplayer-builder, started
+2026-08-18T18:00:23.268Z 3281 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T18:00:26.709Z 8348 show sumelse.hoops/myplayer-builder, started
+2026-08-18T18:00:26.711Z 8348 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T18:00:28.904Z 5996 getProcessPid(), started
+2026-08-18T18:00:28.904Z 5996 getProcessPid(), succeeded
+2026-08-18T18:02:29.242Z 4233 version, started
+2026-08-18T18:02:29.248Z 4233 version, succeeded
+2026-08-18T18:02:29.256Z 3013 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T18:02:29.268Z 3013 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T18:02:29.275Z 5549 getCurrentLaneObject(), started
+2026-08-18T18:02:29.276Z 8727 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T18:02:29.277Z 8405 status  --ignoreCircularDependencies, started
+2026-08-18T18:02:29.278Z 5549 getCurrentLaneObject(), succeeded
+2026-08-18T18:02:29.320Z 8727 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T18:02:29.332Z 6472 getCurrentLaneName(), started
+2026-08-18T18:02:29.333Z 6472 getCurrentLaneName(), succeeded
+2026-08-18T18:02:29.385Z 3705 show sumelse.hoops/myplayer-builder, started
+2026-08-18T18:02:33.029Z 3705 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T18:02:33.052Z 8405 status  --ignoreCircularDependencies, succeeded
+2026-08-18T18:02:33.057Z 923 getModifiedByConfig(), started
+2026-08-18T18:02:33.059Z 923 getModifiedByConfig(), succeeded
+2026-08-18T18:03:02.367Z 7440 version, started
+2026-08-18T18:03:02.373Z 7440 version, succeeded
+2026-08-18T18:03:02.380Z 2196 importObjectsIfOutdatedAgainstBitmap(), started
+2026-08-18T18:03:02.391Z 2196 importObjectsIfOutdatedAgainstBitmap(), succeeded
+2026-08-18T18:03:02.396Z 4642 getCurrentLaneObject(), started
+2026-08-18T18:03:02.397Z 4451 getDataToInitSCM({"useHashes":true}), started
+2026-08-18T18:03:02.399Z 1765 status  --ignoreCircularDependencies, started
+2026-08-18T18:03:02.399Z 4642 getCurrentLaneObject(), succeeded
+2026-08-18T18:03:02.440Z 4451 getDataToInitSCM({"useHashes":true}), succeeded
+2026-08-18T18:03:02.462Z 6964 getCurrentLaneName(), started
+2026-08-18T18:03:02.465Z 6964 getCurrentLaneName(), succeeded
+2026-08-18T18:03:02.533Z 8605 show sumelse.hoops/myplayer-builder, started
+2026-08-18T18:03:05.638Z 8605 show sumelse.hoops/myplayer-builder, succeeded
+2026-08-18T18:03:05.686Z 1765 status  --ignoreCircularDependencies, succeeded
+2026-08-18T18:03:05.691Z 2192 getModifiedByConfig(), started
+2026-08-18T18:03:05.693Z 2192 getModifiedByConfig(), succeeded

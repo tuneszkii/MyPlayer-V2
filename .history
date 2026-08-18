@@ -18,3 +18,80 @@ git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
 git branch -M main
 git push -u origin main
 git add
+git add .
+git commit -m "Describe what I changed"
+git push
+cd /home/user/myplayer-builder
+pnpm install
+pnpm dev
+pnpm run dev
+node --version
+npm --verson
+pnpm verson
+pnpm --verson
+npm install -g pnpm
+pnpm --verson
+pnpm --version
+npm fund
+npm bin -g
+npm help
+npm prefix -g
+ls "$(npm prefix -g)/bin"
+ls -l "$(npm prefix -g)/bin/pnpm"
+export PATH="$(npm prefix -g)/bin:$PATH"
+pnpm --version
+echo 'export PATH="$(npm prefix -g)/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+pnpm --version
+npm prefix -g
+bit status
+bit list
+cat package.json
+pnpm --version
+pwd
+pnpm --version
+node --version
+npm --version
+bit --version
+npm prefix -g
+git add .
+git commit -m "Describe what I changed"
+git push
+find . -maxdepth 2 -type f | sort
+ls
+find hoops -maxdepth 3 -type f | sort
+cat workspace.jsonc
+cat hoops/myplayer-builder/package.json
+cd hoops/myplayer-builder
+pnpm exec vite --host 0.0.0.0
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+pnpm --version
+cd ~/myplayer-builder
+pnpm install
+cd ~/myplayer-builder
+grep -R "@bitdev/react.generators.react-starters" . --exclude-dir=.git --exclude-dir=node_modules
+bit install
+cd ~/myplayer-builder
+bit start
+bit app list
+bit run myplayer-builder
+bit run myplayer-builder --port 5173
+pnpm --version
+sudo nano /usr/local/bin/save
+mkdir -p ~/.local/bin
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+cd ~/myplayer-builder
+bit install
+bit run myplayer-builder --port 5173
+chmod +x ~/.local/bin/save
+nano ~/.local/bin/save
+chmod +x ~/.local/bin/save
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+save "test"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "Chris"
