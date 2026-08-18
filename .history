@@ -102,3 +102,6 @@ nano .gitignore
 git rm -r --cached .bit
 git status
 save "Ignore Bit workspace files"
+save "Test"
+cat ~/.local/bin/save
+nano ~/.local/bin/save
