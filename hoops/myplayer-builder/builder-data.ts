@@ -320,7 +320,7 @@ export const POSITION_WEIGHTS: Record<Position, Record<CategoryId, number>> = {
 export const MIN_RATING = 25;
 
 /** Total attribute points available to spend. */
-export const TOTAL_POINTS = 2150;
+export const TOTAL_POINTS = 1850;
 
 /** The wizard steps in order. */
 export const STEPS: { id: StepId; label: string; hint: string }[] = [

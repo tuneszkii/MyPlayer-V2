@@ -117,3 +117,7 @@ echo 'export PATH="$HOME/myplayer-builder/scripts:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 save "Test repository save command"
 rm ~/.local/bin/save
+save "testing save command"
+lsof -i :5173
+kill <PID>
+bit run myplayer-builder --port 5173
