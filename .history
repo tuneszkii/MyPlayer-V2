@@ -37,3 +37,17 @@ git push origin
 git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
 git remote -v
 git push -u origin master
+save "test"
+git
+git config --global user.email "tunesziiii@gmail.com"
+git config --global user.name "tuneszkii"
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+git remote -v
+git push -u origin master
+save "Explain what I changed"
+mkdir -p ~/.local/bin
+nano ~/.local/bin/save
+chmod +x ~/.local/bin/save
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+which save
