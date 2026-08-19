@@ -29,3 +29,6 @@ git init
 save "test"
 git config --global user.email "tuneszkiiii@gmail.com"
 git config --global user.name "tuneszkii"
+save "test"
+git remote add https://github.com/tuneszkii/MyPlayer-V2.git
+git fetch
