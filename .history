@@ -1,0 +1,31 @@
+claude
+git --global 
+git
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "tuneszki"
+pnpm --version
+npm --version
+bit --version
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+cd ~/myplayer-builder
+bit install
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+cd ~/myplayer-builder
+bit install
+mkdir -p ~/.local/bin
+nano ~/.local/bin/save
+chmod +x ~/.local/bin/save
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+which save
+save "Testing"
+.git
+git
+git init
+save "test"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "tuneszkii"

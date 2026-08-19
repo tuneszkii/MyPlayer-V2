@@ -1,0 +1,410 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tab {
+  border: 1px solid #1e2634;
+  background: #131926;
+  color: #8792a6;
+  border-radius: 999px;
+  padding: 0.38rem 0.75rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab:hover {
+  color: #eef2f8;
+}
+
+.tabActive {
+  color: #0b0e14;
+  border-color: transparent;
+}
+
+.group {
+  margin-bottom: 1.5rem;
+}
+
+.group:last-child {
+  margin-bottom: 0;
+}
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.groupDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+
+.groupName {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.groupAvg {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #8792a6;
+  font-variant-numeric: tabular-nums;
+}
+
+.attrGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.attr {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+}
+
+.attrActive {
+  border-color: #33405a;
+  background: #111726;
+}
+
+.attrLinked {
+  background: rgba(59, 169, 255, 0.06);
+}
+
+.attrTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.attrName {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #cfd7e4;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.linkIcon {
+  font-size: 0.62rem;
+  color: #3ba9ff;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.attrRight {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.attrValue {
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+  text-align: right;
+}
+
+.attrCap {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #5d6879;
+  font-variant-numeric: tabular-nums;
+}
+
+.trackWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepBtn {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid #1e2634;
+  background: #131926;
+  color: #cfd7e4;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.stepBtn:hover:not(:disabled) {
+  background: #1c2432;
+}
+
+.stepBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.rangeWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.rangeBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 8px;
+  border-radius: 999px;
+  background: #161d2b;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rangeCapZone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 91, 91, 0.16),
+    rgba(255, 91, 91, 0.16) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.rangeAfford {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.rangeFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+.range {
+  position: relative;
+  width: 100%;
+  appearance: none;
+  background: transparent;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #eef2f8;
+  border: 3px solid #0d1119;
+  box-shadow: 0 0 0 1px #33405a;
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #eef2f8;
+  border: 3px solid #0d1119;
+  box-shadow: 0 0 0 1px #33405a;
+  cursor: pointer;
+}
+
+.chainNote {
+  font-size: 0.66rem;
+  color: #6f7b8e;
+  line-height: 1.4;
+  padding-left: 2rem;
+}
+
+.chainHi {
+  color: #3ba9ff;
+  font-weight: 700;
+}
+
+.badgePanelList {
+  display: grid;
+  gap: 0.4rem;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.badgePanelList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.badgePanelList::-webkit-scrollbar-thumb {
+  background: #1e2634;
+  border-radius: 999px;
+}
+
+.badgeRow {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 11px;
+  border: 1px solid #1a2130;
+  background: #111726;
+}
+
+.badgeLocked {
+  opacity: 0.45;
+}
+
+.medal {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: #0b0e14;
+}
+
+.badgeBody {
+  min-width: 0;
+}
+
+.badgeName {
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badgeMeta {
+  font-size: 0.65rem;
+  color: #6f7b8e;
+  font-weight: 600;
+}
+
+.pips {
+  display: flex;
+  gap: 3px;
+}
+
+.pip {
+  width: 6px;
+  height: 14px;
+  border-radius: 2px;
+  background: #222a39;
+}
+
+.focusHead {
+  padding: 0.6rem 0.7rem;
+  border-radius: 12px;
+  background: #111726;
+  border: 1px solid #1a2130;
+  margin-bottom: 0.75rem;
+}
+
+.focusName {
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.focusMeta {
+  font-size: 0.7rem;
+  color: #8792a6;
+  margin-top: 0.15rem;
+  line-height: 1.45;
+}
+
+.legendRow {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8792a6;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.presetRow {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.presetBtn {
+  border: 1px solid #1e2634;
+  background: #131926;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.73rem;
+  font-weight: 800;
+  color: #cfd7e4;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.presetBtn:hover {
+  border-color: #384861;
+  color: #fff;
+}
+
+@media (min-width: 620px) {
+  .attrGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem 1.2rem;
+  }
+}

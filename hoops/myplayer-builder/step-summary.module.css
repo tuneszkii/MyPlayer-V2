@@ -1,0 +1,175 @@
+.nameInput {
+  width: 100%;
+  box-sizing: border-box;
+  background: #131926;
+  border: 1px solid #1e2634;
+  border-radius: 12px;
+  color: #eef2f8;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 0.8rem 0.95rem;
+  outline: none;
+}
+
+.nameInput:focus {
+  border-color: #ffd23f;
+}
+
+.suggestRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+
+.suggestBtn {
+  border: 1px solid #1e2634;
+  background: #131926;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #cfd7e4;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.suggestBtn:hover {
+  border-color: #ffd23f;
+  color: #ffd23f;
+}
+
+.takeoverSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  background: #111726;
+  border: 1px solid #1a2130;
+}
+
+.takeoverDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.takeoverName {
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.takeoverDesc {
+  font-size: 0.74rem;
+  color: #8792a6;
+  margin-top: 0.1rem;
+  line-height: 1.45;
+}
+
+.compareList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.compareRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: #111726;
+  border: 1px solid #1a2130;
+}
+
+.compareTop {
+  min-width: 0;
+}
+
+.compareName {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.comparePos {
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 5px;
+  background: rgba(255, 210, 63, 0.16);
+  color: #ffd23f;
+}
+
+.compareTag {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  color: #6f7b8e;
+  line-height: 1.45;
+}
+
+.compareScore {
+  text-align: right;
+  font-size: 1.05rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.compareUnit {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #5d6879;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: -0.1rem;
+}
+
+.compareTrack {
+  grid-column: 1 / -1;
+  height: 4px;
+  border-radius: 999px;
+  background: #1a2130;
+  overflow: hidden;
+}
+
+.compareFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffd23f, #ff7a3d);
+}
+
+.badgeTally {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.tally {
+  text-align: center;
+  padding: 0.6rem 0.3rem;
+  border-radius: 12px;
+  background: #111726;
+  border: 1px solid #1a2130;
+}
+
+.tallyValue {
+  font-size: 1.3rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.tallyLabel {
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8792a6;
+  margin-top: 0.3rem;
+}

@@ -1,0 +1,145 @@
+git status
+git init
+find . -name ".env*" -not -path "./node_modules/*
+git add .
+git commin -m "Initial commit"
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+cd /home/user/myplayer-builder
+git status
+git add
+git add .
+git commit -m "Initial commit"
+git config user.email "tuneszkiiii@gmail.com"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "Chris"
+git commit -m "Initial commit"
+git remote add origin https://github.com/tuneszkii/MyPlayer-V2.git
+git branch -M main
+git push -u origin main
+git add
+git add .
+git commit -m "Describe what I changed"
+git push
+cd /home/user/myplayer-builder
+pnpm install
+pnpm dev
+pnpm run dev
+node --version
+npm --verson
+pnpm verson
+pnpm --verson
+npm install -g pnpm
+pnpm --verson
+pnpm --version
+npm fund
+npm bin -g
+npm help
+npm prefix -g
+ls "$(npm prefix -g)/bin"
+ls -l "$(npm prefix -g)/bin/pnpm"
+export PATH="$(npm prefix -g)/bin:$PATH"
+pnpm --version
+echo 'export PATH="$(npm prefix -g)/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+pnpm --version
+npm prefix -g
+bit status
+bit list
+cat package.json
+pnpm --version
+pwd
+pnpm --version
+node --version
+npm --version
+bit --version
+npm prefix -g
+git add .
+git commit -m "Describe what I changed"
+git push
+find . -maxdepth 2 -type f | sort
+ls
+find hoops -maxdepth 3 -type f | sort
+cat workspace.jsonc
+cat hoops/myplayer-builder/package.json
+cd hoops/myplayer-builder
+pnpm exec vite --host 0.0.0.0
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+pnpm --version
+cd ~/myplayer-builder
+pnpm install
+cd ~/myplayer-builder
+grep -R "@bitdev/react.generators.react-starters" . --exclude-dir=.git --exclude-dir=node_modules
+bit install
+cd ~/myplayer-builder
+bit start
+bit app list
+bit run myplayer-builder
+bit run myplayer-builder --port 5173
+pnpm --version
+sudo nano /usr/local/bin/save
+mkdir -p ~/.local/bin
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+cd ~/myplayer-builder
+bit install
+bit run myplayer-builder --port 5173
+chmod +x ~/.local/bin/save
+nano ~/.local/bin/save
+chmod +x ~/.local/bin/save
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+save "test"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "Chris"
+save "test"
+git log --oneline -5
+cat .gitignore
+nano .gitignore
+git rm -r --cached .bit
+git status
+save "Ignore Bit workspace files"
+save "Test"
+cat ~/.local/bin/save
+nano ~/.local/bin/save
+save "test single run"
+cd ~/myplayer-builder
+bit run myplayer-builder --port 5173
+cd ~/myplayer-builder
+mkdir -p scripts
+nano scripts/save
+chmod +x scripts/save
+./scripts/save "Move save script into repository"
+echo 'export PATH="$HOME/myplayer-builder/scripts:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+save "Test repository save command"
+rm ~/.local/bin/save
+save "testing save command"
+lsof -i :5173
+kill <PID>
+bit run myplayer-builder --port 5173
+save "Tweaked some stuff"
+bit run myplayer-builder --port 5173
+fuser -k 5173/tcp
+lsof -i :5173
+bit run myplayer-builder --port 5173
+lsof -i :5173
+save "Added weight logic and tampered with height and wingspam"
+cd ~/myplayer-builder
+grep -R "function capFor\|capFor" hoops/myplayer-builder --exclude-dir=node_modules
+sed -n '1,260p' hoops/myplayer-builder/builder-logic.ts
+grep -n -A100 -B20 "export function capFor" hoops/myplayer-builder/builder-logic.ts
+grep -n -A120 "POSITION_CAPS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "ATTRIBUTE_LINKS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "POSITION_CAPS" hoops/myplayer-builder/builder-data.ts
+grep -n -A120 "ATTRIBUTE_LINKS" hoops/myplayer-builder/builder-data.ts
+cd ~/myplayer-builder
+npm test
+cd ~/myplayer-builder
+npm test
+cat package.json
+npm run
+npm list vitest
