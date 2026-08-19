@@ -51,3 +51,19 @@ chmod +x ~/.local/bin/save
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 which save
+save "Test"
+pnpm run dev
+npm install -g pnpm
+echo 'export PATH="/home/user/.npm-global/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+cd ~/myplayer-builder
+bit install
+pnpm run dev
+mkdir -p ~/.local/bin
+nano ~/.local/bin/save
+chmod +x ~/.local/bin/save
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+save "Testing"
+git config --global user.email "tuneszkiiii@gmail.com"
+git config --global user.name "tuneszkii"
