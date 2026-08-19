@@ -153,117 +153,902 @@ export function getWeightRange(position: Position, height: number): [number, num
   }
 }
 
+/**
+ * Body-cap model
+ *
+ * This section intentionally uses attribute-specific physical curves rather
+ * than broad "quickness", "size", or "shooting" modifiers.
+ *
+ * Important:
+ * - Height is not equally valuable for every attribute.
+ * - Wingspan is measured relative to the player's height.
+ * - Weight is evaluated relative to a height + position-specific ideal.
+ * - Extreme bodies create diminishing returns instead of hard cliffs.
+ * - POSITION_CAPS remains the positional ceiling/baseline.
+ */
+
+type BodyCurveAttribute =
+  | 'closeShot'
+  | 'drivingLayup'
+  | 'drivingDunk'
+  | 'standingDunk'
+  | 'postControl'
+  | 'midRange'
+  | 'threePoint'
+  | 'freeThrow'
+  | 'passAccuracy'
+  | 'ballHandle'
+  | 'speedWithBall'
+  | 'interiorDefense'
+  | 'perimeterDefense'
+  | 'steal'
+  | 'block'
+  | 'offensiveRebound'
+  | 'defensiveRebound'
+  | 'speed'
+  | 'agility'
+  | 'strength'
+  | 'vertical'
+  | 'stamina';
+
+/**
+ * Convert a physical measurement into a normalized range.
+ *
+ * Examples:
+ * - 6'6" = 78 inches
+ * - 6'9" = 81 inches
+ * - 7'4" = 88 inches
+ */
+function normalizedHeight(height: number): number {
+  return height - 78;
+}
+
+/**
+ * Wingspan relative to height.
+ *
+ * 0  = wingspan exactly equals height
+ * +2 = two inches longer
+ * +6 = six inches longer
+ */
+function relativeWingspan(body: Body): number {
+  return body.wingspan - body.height;
+}
+
+/**
+ * Smoothly compress extreme positive/negative values.
+ *
+ * This is useful for weight because going from +20 to +40 lbs should matter,
+ * but going from +40 to +60 should not double the effect.
+ */
+function softSaturate(value: number, scale: number): number {
+  if (value === 0) return 0;
+
+  const magnitude = Math.abs(value);
+  const compressed = magnitude / (1 + magnitude / scale);
+
+  return Math.sign(value) * compressed;
+}
+
+/**
+ * Position-specific ideal weight.
+ *
+ * The key difference from the previous model:
+ *
+ * 7'4 C does NOT use the same ideal-weight relationship as a 7'4 PG.
+ * Weight therefore remains meaningful at every position and height.
+ */
+function idealWeight(height: number, position: Position): number {
+  const heightAboveSixFoot = height - 72;
+
+  const positionBias: Record<Position, number> = {
+    PG: -10,
+    SG: -5,
+    SF: 4,
+    PF: 14,
+    C: 25,
+  };
+
+  const raw =
+    175 +
+    heightAboveSixFoot * 6.0 +
+    positionBias[position];
+
+  return clamp(raw, 160, 330);
+}
+
+/**
+ * Weight relative to the player's physical frame.
+ *
+ * Example:
+ * - negative = underweight for the frame
+ * - positive = overweight for the frame
+ */
+function weightDelta(body: Body, position: Position): number {
+  return body.weight - idealWeight(body.height, position);
+}
+
+/**
+ * Returns a weight factor where:
+ *
+ * - underweight is negative
+ * - moderate extra mass is positive
+ * - extreme mass eventually gives diminishing returns
+ */
+function massFactor(body: Body, position: Position): number {
+  const delta = weightDelta(body, position);
+
+  if (delta >= 0) {
+    return softSaturate(delta, 45);
+  }
+
+  return softSaturate(delta, 35);
+}
+
+/**
+ * Height curve helpers.
+ *
+ * These intentionally use different shapes for different attribute families.
+ */
+
+function heightPenaltyAbove(
+  height: number,
+  threshold: number,
+  coefficient: number,
+): number {
+  return Math.max(0, height - threshold) * coefficient;
+}
+
+function heightBonusAbove(
+  height: number,
+  threshold: number,
+  coefficient: number,
+): number {
+  return Math.max(0, height - threshold) * coefficient;
+}
+
+/**
+ * SHOOTING
+ *
+ * Height begins to matter more above the normal guard range.
+ * Wingspan adds another penalty based on length relative to height.
+ *
+ * Free throw is deliberately less sensitive than field-goal shooting.
+ */
+function shootingCap(
+  attributeId: string,
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position][attributeId] ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  // 6'6" is approximately neutral.
+  if (attributeId === 'threePoint' || attributeId === 'midRange') {
+    // Small guards can retain elite shooting.
+    if (h < 78) {
+      cap += Math.min(4, (78 - h) * 0.75);
+    }
+
+    // Increasingly severe penalty once the player becomes a large wing.
+    cap -= heightPenaltyAbove(h, 78, 1.7);
+    cap -= heightPenaltyAbove(h, 82, 1.5);
+
+    // Long arms are a real shooting tradeoff.
+    const excessLength = Math.max(0, length - 2);
+    cap -= excessLength * 1.55;
+  }
+
+  if (attributeId === 'freeThrow') {
+    // Free throw should be substantially less body-sensitive.
+    cap -= heightPenaltyAbove(h, 84, 0.75);
+    cap -= Math.max(0, length - 4) * 0.5;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * BALL HANDLING
+ *
+ * Height is the primary constraint.
+ * Wingspan matters, but much less than height.
+ * Weight matters only once a player is substantially overweight for their frame.
+ *
+ * This intentionally leaves room for big creators:
+ * 6'7-6'9 wings can still be strong ball handlers.
+ */
+function ballHandleCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].ballHandle ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  if (h <= 74) {
+    // Small guard advantage.
+    cap += (74 - h) * 0.8;
+  } else if (h <= 77) {
+    // Elite guard window.
+    cap += 1;
+  } else if (h <= 80) {
+    // 6'6-6'8 remains highly playable with the ball.
+    cap -= (h - 77) * 2.0;
+  } else if (h <= 83) {
+    // 6'9-6'11 remains viable for tall creators.
+    cap -= 6 + (h - 80) * 2.7;
+  } else {
+    // 7'0+ becomes increasingly restricted.
+    cap -= 14 + (h - 83) * 3.5;
+  }
+
+  // Long arms hurt handling, but the penalty is intentionally modest.
+  cap -= Math.max(0, length - 3) * 0.9;
+
+  // Only substantial excess weight should affect handle.
+  const delta = weightDelta(body, position);
+  cap -= Math.max(0, delta - 15) * 0.04;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * SPEED
+ *
+ * Height is significant.
+ * Excess mass hurts, but heavy players retain strength benefits elsewhere.
+ */
+function speedCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].speed ?? 75;
+  const h = body.height;
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += Math.min(5, (78 - h) * 1.1);
+  } else {
+    cap -= (h - 78) * 1.45;
+  }
+
+  // Underweight/light guards retain a small speed benefit.
+  if (delta < -15) {
+    cap += Math.min(3, (-delta - 15) * 0.05);
+  }
+
+  // Extra mass progressively hurts movement.
+  if (delta > 0) {
+    cap -= softSaturate(delta, 45) * 0.22;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * AGILITY
+ *
+ * Agility is more sensitive to size than straight-line speed.
+ */
+function agilityCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].agility ?? 75;
+  const h = body.height;
+  const delta = weightDelta(body, position);
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += Math.min(5, (78 - h) * 1.25);
+  } else {
+    cap -= (h - 78) * 1.75;
+  }
+
+  if (delta > 0) {
+    cap -= softSaturate(delta, 40) * 0.26;
+  }
+
+  // Very long bodies are harder to change direction with.
+  cap -= Math.max(0, length - 4) * 0.35;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * SPEED WITH BALL
+ *
+ * More restrictive than speed, but less restrictive than ball handle
+ * for tall players.
+ */
+function speedWithBallCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].speedWithBall ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += Math.min(4, (78 - h) * 0.9);
+  } else {
+    cap -= (h - 78) * 1.6;
+  }
+
+  cap -= Math.max(0, length - 3) * 0.6;
+  cap -= Math.max(0, delta - 10) * 0.12;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * VERTICAL
+ *
+ * Shorter/lighter players have the strongest ceiling.
+ * Height itself does not completely destroy vertical, especially for bigs.
+ */
+function verticalCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].vertical ?? 75;
+  const h = body.height;
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += Math.min(5, (78 - h) * 1.1);
+  } else {
+    cap -= (h - 78) * 0.9;
+  }
+
+  if (delta > 0) {
+    cap -= softSaturate(delta, 45) * 0.16;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * STRENGTH
+ *
+ * Weight is the primary factor.
+ * Height gives a small leverage/size baseline.
+ *
+ * Critically, 300+ lbs still has value.
+ * There is no arbitrary "everything falls off after 288" cutoff.
+ */
+function strengthCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].strength ?? 75;
+  const h = body.height;
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  // Tall bodies have more structural strength potential.
+  cap += Math.max(0, h - 78) * 0.45;
+
+  // Weight remains beneficial across the high-mass range.
+  if (delta >= 0) {
+    cap += softSaturate(delta, 60) * 0.42;
+  } else {
+    // Being dramatically underweight hurts strength potential.
+    cap += delta * 0.10;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * STANDING DUNK
+ *
+ * Primarily height + mass + length.
+ * Heavy players retain the benefit of added mass.
+ * Extreme weight eventually has diminishing returns rather than a cliff.
+ */
+function standingDunkCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].standingDunk ?? 70;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 74) {
+    cap -= (74 - h) * 5;
+  } else if (h <= 82) {
+    cap += (h - 74) * 1.9;
+  } else if (h <= 86) {
+    cap += 15 + (h - 82) * 1.6;
+  } else {
+    // Huge players continue to benefit without instantly hitting 99.
+    cap += 21.4 + (h - 86) * 0.9;
+  }
+
+  cap += Math.max(0, length - 2) * 0.65;
+
+  if (delta < -20) {
+    cap += delta * 0.10;
+  } else if (delta <= 30) {
+    cap += delta * 0.18;
+  } else {
+    // Heavy still helps, but each additional pound matters less.
+    cap += softSaturate(delta - 30, 45) * 0.10 + 5.4;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * DRIVING DUNK
+ *
+ * There is an optimal "explosive wing" zone around 6'5-6'9.
+ * Extremely short and extremely tall bodies both pay a cost.
+ * Wingspan can partially rescue smaller players.
+ */
+function drivingDunkCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].drivingDunk ?? 80;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 73) {
+    cap -= (73 - h) * 2.8;
+  } else if (h <= 81) {
+    cap += (h - 73) * 2.2;
+  } else if (h <= 84) {
+    cap += 17.6 - (h - 81) * 2.0;
+  } else {
+    cap += 11.6 - (h - 84) * 3.8;
+  }
+
+  // Long arms partially compensate for shorter stature.
+  cap += Math.max(0, length - 2) * 0.8;
+
+  // Excessive mass hurts explosive movement.
+  cap -= Math.max(0, delta - 20) * 0.07;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * INTERIOR DEFENSE
+ *
+ * Height + reach are dominant.
+ * Weight adds physical resistance, but is not mandatory for tall bodies.
+ *
+ * This lets a 7'4 C reach elite interior defense even at 235 lbs.
+ */
+function interiorDefenseCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].interiorDefense ?? 65;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += (h - 78) * 0.8;
+  } else if (h <= 84) {
+    cap += (h - 78) * 2.1;
+  } else {
+    cap += 12.6 + (h - 84) * 1.15;
+  }
+
+  cap += Math.max(0, length - 2) * 1.0;
+
+  // Mass is useful but not required for tall defenders.
+  if (delta >= 0) {
+    cap += softSaturate(delta, 55) * 0.16;
+  } else {
+    cap += Math.max(delta, -40) * 0.025;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * BLOCK
+ *
+ * Height and wingspan are the dominant factors.
+ * Weight should have a relatively small effect.
+ */
+function blockCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].block ?? 65;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 76) {
+    cap += (h - 76) * 1.0;
+  } else if (h <= 84) {
+    cap += (h - 76) * 2.1;
+  } else {
+    cap += 16.8 + (h - 84) * 1.2;
+  }
+
+  cap += Math.max(0, length - 2) * 1.45;
+
+  // A little mass helps contesting/positioning, but reach matters more.
+  cap += softSaturate(delta, 55) * 0.05;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * REBOUNDING
+ *
+ * Height is primary.
+ * Wingspan is secondary.
+ * Weight is meaningful but not enough to turn a short guard into a center.
+ */
+function reboundCap(
+  attributeId: string,
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position][attributeId] ?? 60;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += (h - 78) * 0.5;
+  } else if (h <= 84) {
+    cap += (h - 78) * 1.9;
+  } else {
+    cap += 11.4 + (h - 84) * 1.3;
+  }
+
+  cap += Math.max(0, length - 2) * 1.15;
+
+  if (delta >= 0) {
+    cap += softSaturate(delta, 55) * 0.12;
+  } else {
+    cap += Math.max(delta, -40) * 0.035;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * POST CONTROL
+ *
+ * Height helps, weight helps, and reach helps moderately.
+ * However, it should not become a free 99 simply because a player is tall.
+ */
+function postControlCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].postControl ?? 65;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 76) {
+    cap += (h - 76) * 0.5;
+  } else if (h <= 84) {
+    cap += (h - 76) * 1.5;
+  } else {
+    cap += 12 + (h - 84) * 0.8;
+  }
+
+  cap += Math.max(0, length - 3) * 0.45;
+  cap += softSaturate(delta, 50) * 0.16;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * PERIMETER DEFENSE
+ *
+ * Height is a mild negative once you move into big-wing territory.
+ * Wingspan and mobility are the dominant body advantages.
+ */
+function perimeterDefenseCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].perimeterDefense ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  if (h > 78) {
+    cap -= (h - 78) * 0.75;
+  } else if (h < 76) {
+    cap += (76 - h) * 0.45;
+  }
+
+  cap += Math.max(0, length - 1) * 1.25;
+
+  // Extremely large players still lose some lateral ceiling.
+  if (h >= 84) {
+    cap -= (h - 83) * 1.3;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * STEAL
+ *
+ * Wingspan matters strongly.
+ * Quick guards get a mobility advantage.
+ * Huge centers can still have long reach, but shouldn't become elite guards.
+ */
+function stealCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].steal ?? 70;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h < 78) {
+    cap += (78 - h) * 0.55;
+  } else {
+    cap -= (h - 78) * 0.75;
+  }
+
+  cap += Math.max(0, length - 1) * 1.3;
+
+  if (delta > 20) {
+    cap -= (delta - 20) * 0.04;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * CLOSE SHOT
+ *
+ * Less sensitive to shooting-body penalties than 3PT/midrange.
+ * Size and length provide a moderate benefit around the rim.
+ */
+function closeShotCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].closeShot ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  if (h > 78) {
+    cap += Math.min(8, (h - 78) * 1.1);
+  }
+
+  cap += Math.max(0, length - 3) * 0.35;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * DRIVING LAYUP
+ *
+ * Quickness + body control matter more than raw size.
+ * Small and medium guards retain elite layup potential.
+ */
+function drivingLayupCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].drivingLayup ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h <= 77) {
+    cap += (77 - h) * 0.8;
+  } else {
+    cap -= (h - 77) * 0.8;
+  }
+
+  // Long arms still help finishing.
+  cap += Math.max(0, length - 2) * 0.45;
+
+  // Excess mass mildly hurts dynamic finishing.
+  cap -= Math.max(0, delta - 20) * 0.05;
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * PASS ACCURACY
+ *
+ * Mostly skill-driven, so body dimensions have only modest effects.
+ * Taller players are not automatically bad passers.
+ */
+function passAccuracyCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].passAccuracy ?? 75;
+  const h = body.height;
+  const length = relativeWingspan(body);
+
+  let cap = base;
+
+  if (h >= 84) {
+    cap -= (h - 83) * 0.9;
+  }
+
+  if (length > 6) {
+    cap -= (length - 6) * 0.35;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * STAMINA
+ *
+ * Body-sensitive, but much less extreme than movement.
+ */
+function staminaCap(
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position].stamina ?? 85;
+  const h = body.height;
+  const delta = weightDelta(body, position);
+
+  let cap = base;
+
+  if (h >= 84) {
+    cap -= (h - 83) * 0.5;
+  }
+
+  if (delta > 20) {
+    cap -= (delta - 20) * 0.04;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * Generic fallback for attributes whose body interaction is intentionally mild.
+ */
+function genericBodyCap(
+  attributeId: string,
+  position: Position,
+  body: Body,
+): number {
+  const base = POSITION_CAPS[position][attributeId] ?? 75;
+
+  let cap = base;
+
+  // Mild physical interaction only.
+  const h = body.height - 78;
+  const length = relativeWingspan(body);
+
+  if (attributeId === 'freeThrow') {
+    cap -= Math.max(0, h) * 0.3;
+    cap -= Math.max(0, length - 4) * 0.25;
+  }
+
+  return clamp(Math.round(cap), 40, 99);
+}
+
+/**
+ * Final body-based attribute ceiling.
+ *
+ * Every major body-sensitive attribute has its own model above.
+ */
 export function bodyCap(
   attributeId: string,
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position][attributeId] ?? 99;
+  switch (attributeId as BodyCurveAttribute) {
+    case 'closeShot':
+      return closeShotCap(position, body);
 
-  const heightDelta = body.height - 78;
-  const weightDelta = body.weight - 215;
-  const wingspanDelta = body.wingspan - body.height;
+    case 'drivingLayup':
+      return drivingLayupCap(position, body);
 
-  let modifier = 0;
+    case 'drivingDunk':
+      return drivingDunkCap(position, body);
 
-  /*
-   * HEIGHT
-   *
-   * Taller players gain size-based attributes but lose some
-   * quickness/handling.
-   */
+    case 'standingDunk':
+      return standingDunkCap(position, body);
 
-  if (
-    ['speed', 'agility', 'speedWithBall', 'ballHandle'].includes(attributeId)
-  ) {
-    modifier -= heightDelta * 1.5;
+    case 'postControl':
+      return postControlCap(position, body);
+
+    case 'midRange':
+    case 'threePoint':
+    case 'freeThrow':
+      return shootingCap(attributeId, position, body);
+
+    case 'passAccuracy':
+      return passAccuracyCap(position, body);
+
+    case 'ballHandle':
+      return ballHandleCap(position, body);
+
+    case 'speedWithBall':
+      return speedWithBallCap(position, body);
+
+    case 'interiorDefense':
+      return interiorDefenseCap(position, body);
+
+    case 'perimeterDefense':
+      return perimeterDefenseCap(position, body);
+
+    case 'steal':
+      return stealCap(position, body);
+
+    case 'block':
+      return blockCap(position, body);
+
+    case 'offensiveRebound':
+    case 'defensiveRebound':
+      return reboundCap(attributeId, position, body);
+
+    case 'speed':
+      return speedCap(position, body);
+
+    case 'agility':
+      return agilityCap(position, body);
+
+    case 'strength':
+      return strengthCap(position, body);
+
+    case 'vertical':
+      return verticalCap(position, body);
+
+    case 'stamina':
+      return staminaCap(position, body);
+
+    default:
+      return genericBodyCap(attributeId, position, body);
   }
-
-  if (
-    [
-      'interiorDefense',
-      'block',
-      'standingDunk',
-      'offensiveRebound',
-      'defensiveRebound',
-      'postControl',
-    ].includes(attributeId)
-  ) {
-    modifier += heightDelta * 1.5;
-  }
-
-  /*
-   * WEIGHT
-   *
-   * Heavier players gain strength, interior presence and rebounding,
-   * but lose some movement.
-   */
-
-  if (attributeId === 'strength') {
-    modifier += weightDelta * 0.18;
-  }
-
-  if (
-    ['interiorDefense', 'postControl', 'standingDunk'].includes(attributeId)
-  ) {
-    modifier += weightDelta * 0.08;
-  }
-
-  if (
-    ['offensiveRebound', 'defensiveRebound'].includes(attributeId)
-  ) {
-    modifier += weightDelta * 0.06;
-  }
-
-  if (
-    ['speed', 'agility', 'speedWithBall', 'ballHandle'].includes(attributeId)
-  ) {
-    modifier -= weightDelta * 0.06;
-  }
-
-  /*
-   * WINGSPAN
-   *
-   * Longer arms help defensive range and rebounding.
-   */
-
-  if (
-    [
-      'block',
-      'steal',
-      'perimeterDefense',
-      'defensiveRebound',
-    ].includes(attributeId)
-  ) {
-    modifier += wingspanDelta * 1.5;
-  }
-
-  if (
-    ['offensiveRebound', 'standingDunk'].includes(attributeId)
-  ) {
-    modifier += wingspanDelta * 0.75;
-  }
-
-  /*
-   * VERTICAL
-   *
-   * Height and wingspan shouldn't directly create huge vertical
-   * ceilings. Keep this mostly athletic.
-   */
-
-  if (attributeId === 'vertical') {
-    modifier -= Math.max(0, heightDelta) * 0.5;
-    modifier += Math.max(0, -heightDelta) * 0.25;
-  }
-
-  /*
-   * Final ceiling.
-   */
-
-  return Math.max(
-    MIN_RATING,
-    Math.min(99, Math.round(base + modifier)),
-  );
 }
 
 /**
