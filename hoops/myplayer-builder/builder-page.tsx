@@ -10,6 +10,7 @@ import {
 import {
   applyChange,
   clampRatings,
+  fitToBudget,
   isTakeoverUnlocked,
   overallRating,
   remainingPoints,
@@ -124,7 +125,7 @@ export function BuilderPage() {
     const nextBody = clampBody(DEFAULT_BODY, preset.position);
     setPosition(preset.position);
     setBody(nextBody);
-    const settled = clampRatings(preset.ratings, preset.position, nextBody);
+    const settled = fitToBudget(preset.ratings, preset.position, nextBody);
     setRatings(settled);
     // Drop a takeover that the new ratings no longer support.
     setTakeover((prev) => {
@@ -143,6 +144,10 @@ export function BuilderPage() {
   );
 
   const reset = useCallback(() => {
+    setStep('body');
+    setName('');
+    setPosition('SG');
+    setBody(DEFAULT_BODY);
     setRatings(baseRatings());
     setTakeover(undefined);
   }, []);

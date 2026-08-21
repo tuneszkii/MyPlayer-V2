@@ -338,7 +338,7 @@ function shootingCap(
 
     // Long arms are a real shooting tradeoff.
     const excessLength = Math.max(0, length - 2);
-    cap -= excessLength * 1.55;
+    cap -= excessLength * (h < 78 ? 0.35 : 1.55);
   }
 
   if (attributeId === 'freeThrow') {
@@ -519,6 +519,10 @@ function verticalCap(
     cap -= softSaturate(delta, 45) * 0.16;
   }
 
+  if (position === 'C' && h >= 84 && body.weight >= 275) {
+    cap += 10;
+  }
+
   return clamp(Math.round(cap), 40, 99);
 }
 
@@ -550,6 +554,10 @@ function strengthCap(
   } else {
     // Being dramatically underweight hurts strength potential.
     cap += delta * 0.10;
+  }
+
+  if (position === 'C' && h >= 84 && body.weight >= 275) {
+    cap += 2;
   }
 
   return clamp(Math.round(cap), 40, 99);
@@ -1169,6 +1177,30 @@ export function changeCost(
 ): number {
   const next = applyChange(ratings, attributeId, target, position, body);
   return spentPoints(next) - spentPoints(ratings);
+}
+
+/** Lower the most economical ratings until a preset fits the global budget. */
+export function fitToBudget(
+  ratings: Ratings,
+  position: Position,
+  body: Body,
+): Ratings {
+  let next = clampRatings(ratings, position, body);
+
+  while (spentPoints(next) > TOTAL_POINTS) {
+    const candidates = ATTRIBUTES
+      .filter((attr) => (next[attr.id] ?? MIN_RATING) > MIN_RATING)
+      .map((attr) => {
+        const candidate = applyChange(next, attr.id, next[attr.id] - 1, position, body);
+        return { candidate, savings: spentPoints(next) - spentPoints(candidate), value: next[attr.id] };
+      })
+      .sort((a, b) => b.savings - a.savings || b.value - a.value);
+
+    if (candidates.length === 0) break;
+    next = candidates[0].candidate;
+  }
+
+  return next;
 }
 
 /**

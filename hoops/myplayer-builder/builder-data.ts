@@ -90,11 +90,9 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
   passAccuracy: [{ attr: 'ballHandle', gap: 14 }],
   ballHandle: [
     { attr: 'speedWithBall', gap: 6 },
-    { attr: 'passAccuracy', gap: 28 }
   ],
   speedWithBall: [
     { attr: 'speed', gap: 0 },
-    { attr: 'ballHandle', gap: 24 }
   ],
 
   // Defense leans on frame and footwork.
@@ -108,12 +106,10 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
     { attr: 'steal', gap: 22 }
   ],
   steal: [
-    { attr: 'perimeterDefense', gap: 12 },
     { attr: 'agility', gap: 16 }
   ],
   block: [
     { attr: 'vertical', gap: 8 },
-    { attr: 'interiorDefense', gap: 10 },
   ],
 
   // Rebounding leans on bounce and strength.
@@ -124,7 +120,6 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
   defensiveRebound: [
     { attr: 'vertical', gap: 12 },
     { attr: 'strength', gap: 10 },
-    { attr: 'offensiveRebound', gap: 20 },
   ],
 
   // Physicals: speed rides on agility, bounce rides on agility.
@@ -133,14 +128,9 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
     { attr: 'stamina', gap: 17 }
   ],
   vertical: [
-    { attr: 'agility', gap: 14 },
-    { attr: 'drivingDunk', gap: 22 }
   ],
-  agility: [
-    { attr: 'speed', gap: 14 },
-    { attr: 'perimeterDefense', gap: 18 }
-  ],
-  stamina: [{ attr: 'speed', gap: 17 }],
+  agility: [],
+  stamina: [],
 
   // Roots — nothing sits beneath these.
   closeShot: [],
@@ -291,11 +281,27 @@ export const POSITION_BLURB: Record<Position, string> = {
  * Per-position attribute ceilings. Attributes not listed cap at 99.
  */
 export const POSITION_CAPS: Record<Position, Partial<Record<string, number>>> = {
-  PG: { standingDunk: 78, postControl: 74, interiorDefense: 82, block: 80, offensiveRebound: 80, defensiveRebound: 84, strength: 84 },
-  SG: { standingDunk: 84, postControl: 80, interiorDefense: 86, block: 85, offensiveRebound: 85, strength: 89 },
+  PG: {
+    standingDunk: 78, postControl: 74, interiorDefense: 82, block: 80,
+    offensiveRebound: 80, defensiveRebound: 84, strength: 84,
+    passAccuracy: 99, ballHandle: 99, speedWithBall: 99, perimeterDefense: 99,
+    steal: 99, speed: 99, agility: 99, threePoint: 99, midRange: 99,
+    closeShot: 99, freeThrow: 99,
+  },
+  SG: {
+    standingDunk: 84, postControl: 80, interiorDefense: 86, block: 85,
+    offensiveRebound: 85, strength: 89,
+    passAccuracy: 96, ballHandle: 96, speedWithBall: 96, perimeterDefense: 99,
+    steal: 99, speed: 99, agility: 99, threePoint: 99, midRange: 99,
+    closeShot: 99, freeThrow: 99,
+  },
   SF: { standingDunk: 91, postControl: 87, ballHandle: 96, speedWithBall: 96 },
   PF: { threePoint: 93, ballHandle: 84, speedWithBall: 83, speed: 93, agility: 91 },
-  C: { threePoint: 88, ballHandle: 78, speedWithBall: 74, drivingDunk: 93, speed: 88, agility: 86 },
+  C: {
+    threePoint: 93, ballHandle: 84, speedWithBall: 84, drivingDunk: 99,
+    standingDunk: 99, postControl: 99, interiorDefense: 99, block: 99,
+    offensiveRebound: 99, defensiveRebound: 99, strength: 99, vertical: 99,
+  },
 };
 
 /** Height ranges (inches) allowed per position. */
