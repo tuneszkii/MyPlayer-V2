@@ -87,7 +87,7 @@ export const ATTRIBUTE_LINKS: Record<string, AttributeLink[]> = {
   threePoint: [{ attr: 'midRange', gap: 6 }],
 
   // Playmaking: you cannot move faster with the ball than without it.
-  passAccuracy: [{ attr: 'ballHandle', gap: 14 }],
+  passAccuracy: [],
   ballHandle: [
     { attr: 'speedWithBall', gap: 6 },
   ],
@@ -277,30 +277,47 @@ export const POSITION_BLURB: Record<Position, string> = {
   C: 'Rim protection, lob threat and interior dominance.',
 };
 
-/**
- * Per-position attribute ceilings. Attributes not listed cap at 99.
- */
+/** Complete positional ceilings before body and dependency adjustments. */
 export const POSITION_CAPS: Record<Position, Partial<Record<string, number>>> = {
   PG: {
-    standingDunk: 78, postControl: 74, interiorDefense: 82, block: 80,
-    offensiveRebound: 80, defensiveRebound: 84, strength: 84,
-    passAccuracy: 99, ballHandle: 99, speedWithBall: 99, perimeterDefense: 99,
-    steal: 99, speed: 99, agility: 99, threePoint: 99, midRange: 99,
-    closeShot: 99, freeThrow: 99,
+    closeShot: 94, drivingLayup: 97, drivingDunk: 92, standingDunk: 65,
+    postControl: 60, midRange: 99, threePoint: 99, freeThrow: 99,
+    passAccuracy: 99, ballHandle: 99, speedWithBall: 99,
+    interiorDefense: 70, perimeterDefense: 99, steal: 99, block: 65,
+    offensiveRebound: 45, defensiveRebound: 58,
+    speed: 99, agility: 99, strength: 75, vertical: 95, stamina: 99,
   },
   SG: {
-    standingDunk: 84, postControl: 80, interiorDefense: 86, block: 85,
-    offensiveRebound: 85, strength: 89,
-    passAccuracy: 96, ballHandle: 96, speedWithBall: 96, perimeterDefense: 99,
-    steal: 99, speed: 99, agility: 99, threePoint: 99, midRange: 99,
-    closeShot: 99, freeThrow: 99,
+    closeShot: 95, drivingLayup: 97, drivingDunk: 95, standingDunk: 75,
+    postControl: 65, midRange: 99, threePoint: 99, freeThrow: 99,
+    passAccuracy: 95, ballHandle: 97, speedWithBall: 96,
+    interiorDefense: 75, perimeterDefense: 99, steal: 99, block: 75,
+    offensiveRebound: 55, defensiveRebound: 68,
+    speed: 97, agility: 98, strength: 82, vertical: 95, stamina: 99,
   },
-  SF: { standingDunk: 91, postControl: 87, ballHandle: 96, speedWithBall: 96 },
-  PF: { threePoint: 93, ballHandle: 84, speedWithBall: 83, speed: 93, agility: 91 },
+  SF: {
+    closeShot: 97, drivingLayup: 97, drivingDunk: 99, standingDunk: 88,
+    postControl: 78, midRange: 97, threePoint: 97, freeThrow: 98,
+    passAccuracy: 95, ballHandle: 99, speedWithBall: 90,
+    interiorDefense: 85, perimeterDefense: 95, steal: 95, block: 88,
+    offensiveRebound: 70, defensiveRebound: 78,
+    speed: 94, agility: 94, strength: 90, vertical: 96, stamina: 99,
+  },
+  PF: {
+    closeShot: 99, drivingLayup: 90, drivingDunk: 95, standingDunk: 97,
+    postControl: 92, midRange: 95, threePoint: 92, freeThrow: 95,
+    passAccuracy: 90, ballHandle: 99, speedWithBall: 99,
+    interiorDefense: 97, perimeterDefense: 88, steal: 85, block: 97,
+    offensiveRebound: 95, defensiveRebound: 99,
+    speed: 88, agility: 84, strength: 99, vertical: 95, stamina: 95,
+  },
   C: {
-    threePoint: 93, ballHandle: 84, speedWithBall: 84, drivingDunk: 99,
-    standingDunk: 99, postControl: 99, interiorDefense: 99, block: 99,
-    offensiveRebound: 99, defensiveRebound: 99, strength: 99, vertical: 99,
+    closeShot: 99, drivingLayup: 80, drivingDunk: 95, standingDunk: 99,
+    postControl: 99, midRange: 88, threePoint: 92, freeThrow: 92,
+    passAccuracy: 95, ballHandle: 65, speedWithBall: 65,
+    interiorDefense: 99, perimeterDefense: 75, steal: 75, block: 99,
+    offensiveRebound: 99, defensiveRebound: 99,
+    speed: 78, agility: 72, strength: 99, vertical: 95, stamina: 92,
   },
 };
 

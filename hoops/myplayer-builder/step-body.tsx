@@ -10,7 +10,6 @@ import {
   capFor,
   formatHeight,
   getWeightRange,
-  clamp,
 } from './builder-logic.js';
 import type { Body, Handedness, Position } from './builder-types.js';
 import shared from './step-shared.module.css';
@@ -53,15 +52,7 @@ export function StepBody({
   const figureWidth = 16 + ((body.weight - 160) / 130) * 16;
   const armSpan = 20 + ((body.wingspan - body.height + 2) / 12) * 22;
   const handlePositionChange = (newPosition: Position) => {
-    const [newMinWeight, newMaxWeight] = getWeightRange(
-      newPosition,
-      body.height
-    );
-
     onPosition(newPosition);
-    onBody({
-      weight: clamp(body.weight, newMinWeight, newMaxWeight),
-    });
   };
 
   return (

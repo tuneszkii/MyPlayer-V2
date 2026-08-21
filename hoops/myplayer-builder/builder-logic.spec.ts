@@ -56,6 +56,42 @@ describe('attribute dependency graph', () => {
 });
 
 describe('position and body caps', () => {
+  it('supports creator archetypes across guard, wing, forward, and centre frames', () => {
+    const guard: Body = { height: 74, weight: 176, wingspan: 79, hand: 'Right' };
+    const wing: Body = { height: 81, weight: 225, wingspan: 86, hand: 'Right' };
+    const forward: Body = { height: 82, weight: 240, wingspan: 87, hand: 'Right' };
+    const centre: Body = { height: 88, weight: 295, wingspan: 94, hand: 'Right' };
+
+    expect(capFor('ballHandle', 'PG', guard)).toBeGreaterThanOrEqual(95);
+    expect(capFor('passAccuracy', 'SF', wing)).toBeGreaterThanOrEqual(85);
+    expect(capFor('ballHandle', 'SF', wing)).toBeGreaterThanOrEqual(85);
+    expect(capFor('passAccuracy', 'PF', forward)).toBeGreaterThanOrEqual(85);
+    expect(capFor('threePoint', 'C', centre)).toBeGreaterThanOrEqual(80);
+    expect(capFor('passAccuracy', 'C', centre)).toBeGreaterThanOrEqual(90);
+  });
+
+  it('does not give SF or PF creators an implicit 75 ceiling', () => {
+    const wing: Body = { height: 80, weight: 220, wingspan: 85, hand: 'Right' };
+    const forward: Body = { height: 82, weight: 240, wingspan: 87, hand: 'Right' };
+
+    expect(capFor('passAccuracy', 'SF', wing)).toBeGreaterThanOrEqual(85);
+    expect(capFor('ballHandle', 'SF', wing)).toBeGreaterThanOrEqual(85);
+    expect(capFor('passAccuracy', 'PF', forward)).toBeGreaterThanOrEqual(85);
+    expect(capFor('ballHandle', 'PF', forward)).toBeGreaterThanOrEqual(80);
+  });
+
+  it('responds to wingspan and weight changes instead of plateauing', () => {
+    const compact: Body = { height: 80, weight: 205, wingspan: 78, hand: 'Right' };
+    const long: Body = { height: 80, weight: 205, wingspan: 86, hand: 'Right' };
+    const heavy: Body = { height: 80, weight: 250, wingspan: 78, hand: 'Right' };
+
+    expect(capFor('ballHandle', 'SF', compact)).toBeGreaterThan(capFor('ballHandle', 'SF', long));
+    expect(capFor('speed', 'SF', compact)).toBeGreaterThan(capFor('speed', 'SF', heavy));
+    expect(capFor('perimeterDefense', 'SF', long)).toBeGreaterThan(
+      capFor('perimeterDefense', 'SF', compact),
+    );
+  });
+
   it('lets a light 6\'2 guard reach elite perimeter skills', () => {
     const body: Body = { height: 74, weight: 176, wingspan: 79, hand: 'Right' };
 
@@ -64,6 +100,25 @@ describe('position and body caps', () => {
     expect(capFor('passAccuracy', 'PG', body)).toBeGreaterThanOrEqual(95);
     expect(capFor('threePoint', 'PG', body)).toBeGreaterThanOrEqual(95);
     expect(capFor('perimeterDefense', 'PG', body)).toBeGreaterThanOrEqual(95);
+  });
+
+  it('forces small guards to sacrifice big-man skills', () => {
+    const body: Body = { height: 74, weight: 176, wingspan: 79, hand: 'Right' };
+
+    expect(capFor('offensiveRebound', 'PG', body)).toBeLessThanOrEqual(55);
+    expect(capFor('defensiveRebound', 'PG', body)).toBeLessThanOrEqual(68);
+    expect(capFor('interiorDefense', 'PG', body)).toBeLessThanOrEqual(78);
+    expect(capFor('block', 'PG', body)).toBeLessThanOrEqual(75);
+    expect(capFor('standingDunk', 'PG', body)).toBeLessThanOrEqual(75);
+    expect(capFor('postControl', 'PG', body)).toBeLessThanOrEqual(70);
+  });
+
+  it('makes a long guard trade shooting for downhill finishing reach', () => {
+    const compact: Body = { height: 74, weight: 176, wingspan: 72, hand: 'Right' };
+    const long: Body = { height: 74, weight: 176, wingspan: 80, hand: 'Right' };
+
+    expect(capFor('drivingDunk', 'PG', long)).toBeGreaterThan(capFor('drivingDunk', 'PG', compact));
+    expect(capFor('threePoint', 'PG', long)).toBeLessThan(capFor('threePoint', 'PG', compact));
   });
 
   it('lets a large centre max core interior attributes', () => {
@@ -78,6 +133,12 @@ describe('position and body caps', () => {
 });
 
 describe('point budget', () => {
+  it('uses a progressive cost curve for elite ratings', () => {
+    expect(spentPoints({ ...baseRatings(), threePoint: 75 }) - spentPoints(baseRatings())).toBe(65);
+    expect(spentPoints({ ...baseRatings(), threePoint: 85 }) - spentPoints({ ...baseRatings(), threePoint: 75 })).toBe(30);
+    expect(spentPoints({ ...baseRatings(), threePoint: 93 }) - spentPoints({ ...baseRatings(), threePoint: 92 })).toBe(6);
+  });
+
   it('starts with the full budget and never lets a build overspend', () => {
     expect(remainingPoints(baseRatings())).toBe(TOTAL_POINTS);
     const ratings = ATTRIBUTES.reduce((all, attr) => ({ ...all, [attr.id]: 99 }), {});

@@ -319,7 +319,7 @@ function shootingCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position][attributeId] ?? 75;
+  const base = POSITION_CAPS[position][attributeId] ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
 
@@ -332,13 +332,12 @@ function shootingCap(
       cap += Math.min(4, (78 - h) * 0.75);
     }
 
-    // Increasingly severe penalty once the player becomes a large wing.
-    cap -= heightPenaltyAbove(h, 78, 1.7);
-    cap -= heightPenaltyAbove(h, 82, 1.5);
+    // Height still matters, but the penalty tapers instead of stacking linearly.
+    cap -= softSaturate(Math.max(0, h - 78), 8) * 1.8;
 
     // Long arms are a real shooting tradeoff.
     const excessLength = Math.max(0, length - 2);
-    cap -= excessLength * (h < 78 ? 0.35 : 1.55);
+    cap -= (length - 2) * (h < 78 ? 1.2 : 0.8);
   }
 
   if (attributeId === 'freeThrow') {
@@ -364,7 +363,7 @@ function ballHandleCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].ballHandle ?? 75;
+  const base = POSITION_CAPS[position].ballHandle ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
 
@@ -388,7 +387,7 @@ function ballHandleCap(
   }
 
   // Long arms hurt handling, but the penalty is intentionally modest.
-  cap -= Math.max(0, length - 3) * 0.9;
+  cap -= (length - 2) * 0.7;
 
   // Only substantial excess weight should affect handle.
   const delta = weightDelta(body, position);
@@ -407,7 +406,7 @@ function speedCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].speed ?? 75;
+  const base = POSITION_CAPS[position].speed ?? 99;
   const h = body.height;
   const delta = weightDelta(body, position);
 
@@ -441,7 +440,7 @@ function agilityCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].agility ?? 75;
+  const base = POSITION_CAPS[position].agility ?? 99;
   const h = body.height;
   const delta = weightDelta(body, position);
   const length = relativeWingspan(body);
@@ -474,7 +473,7 @@ function speedWithBallCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].speedWithBall ?? 75;
+  const base = POSITION_CAPS[position].speedWithBall ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
   const delta = weightDelta(body, position);
@@ -503,7 +502,7 @@ function verticalCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].vertical ?? 75;
+  const base = POSITION_CAPS[position].vertical ?? 99;
   const h = body.height;
   const delta = weightDelta(body, position);
 
@@ -539,7 +538,7 @@ function strengthCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].strength ?? 75;
+  const base = POSITION_CAPS[position].strength ?? 99;
   const h = body.height;
   const delta = weightDelta(body, position);
 
@@ -794,7 +793,7 @@ function perimeterDefenseCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].perimeterDefense ?? 75;
+  const base = POSITION_CAPS[position].perimeterDefense ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
 
@@ -806,7 +805,7 @@ function perimeterDefenseCap(
     cap += (76 - h) * 0.45;
   }
 
-  cap += Math.max(0, length - 1) * 1.25;
+  cap += (length - 1) * 1.25;
 
   // Extremely large players still lose some lateral ceiling.
   if (h >= 84) {
@@ -840,7 +839,7 @@ function stealCap(
     cap -= (h - 78) * 0.75;
   }
 
-  cap += Math.max(0, length - 1) * 1.3;
+  cap += (length - 1) * 1.3;
 
   if (delta > 20) {
     cap -= (delta - 20) * 0.04;
@@ -859,7 +858,7 @@ function closeShotCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].closeShot ?? 75;
+  const base = POSITION_CAPS[position].closeShot ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
 
@@ -884,7 +883,7 @@ function drivingLayupCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].drivingLayup ?? 75;
+  const base = POSITION_CAPS[position].drivingLayup ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
   const delta = weightDelta(body, position);
@@ -916,7 +915,7 @@ function passAccuracyCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position].passAccuracy ?? 75;
+  const base = POSITION_CAPS[position].passAccuracy ?? 99;
   const h = body.height;
   const length = relativeWingspan(body);
 
@@ -967,7 +966,7 @@ function genericBodyCap(
   position: Position,
   body: Body,
 ): number {
-  const base = POSITION_CAPS[position][attributeId] ?? 75;
+  const base = POSITION_CAPS[position][attributeId] ?? 99;
 
   let cap = base;
 
