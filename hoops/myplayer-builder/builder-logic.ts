@@ -2,6 +2,9 @@ import {
   ATTRIBUTES,
   ATTRIBUTE_LINKS,
   BADGES,
+  CAP_ANCHORS,
+  CAP_FAMILIES,
+  CAP_FAMILY_BUDGETS,
   CATEGORIES,
   MIN_RATING,
   POSITION_CAPS,
@@ -1058,6 +1061,42 @@ export function bodyCap(
   }
 }
 
+/** Return the family containing an attribute, if it has one. */
+function familyOf(attributeId: string): string | undefined {
+  return Object.entries(CAP_FAMILIES).find(([, attributes]) => attributes.includes(attributeId))?.[0];
+}
+
+/**
+ * Apply a shared family budget to a raw body cap. This is deliberately a soft
+ * normalization: the highest anchors keep their shape, while broad all-round
+ * profiles lose the most access to 99s.
+ */
+function applyFamilyBudget(
+  attributeId: string,
+  rawCap: number,
+  position: Position,
+  body: Body,
+): number {
+  const family = familyOf(attributeId);
+  if (!family) return rawCap;
+  if (CAP_ANCHORS[position].includes(attributeId)) return rawCap;
+
+  const familyAttributes = CAP_FAMILIES[family];
+  const rawTotal = familyAttributes.reduce(
+    (sum, id) => sum + bodyCap(id, position, body),
+    0,
+  );
+  const budget = CAP_FAMILY_BUDGETS[position][family];
+  if (rawTotal <= budget) return rawCap;
+
+  // Keep the family identity intact; only part of excess potential is removed.
+  // The point budget remains the stronger specialization constraint.
+  const excess = (rawTotal - budget) * 0.2;
+  const nonMinimumTotal = rawTotal - familyAttributes.length * MIN_RATING;
+  const share = nonMinimumTotal > 0 ? (rawCap - MIN_RATING) / nonMinimumTotal : 0;
+  return MIN_RATING + Math.max(0, rawCap - MIN_RATING - excess * share);
+}
+
 /**
  * The true ceiling for an attribute, accounting for the dependency graph.
  *
@@ -1078,11 +1117,21 @@ export function capFor(
 ): number {
   if (seen.has(attributeId)) return 99;
   seen.add(attributeId);
-  const own = bodyCap(attributeId, position, body);
+  const own = applyFamilyBudget(attributeId, bodyCap(attributeId, position, body), position, body);
   const linked = parentsOf(attributeId).map(
     (link) => capFor(link.attr, position, body, new Set(seen)) + link.gap,
   );
-  return Math.max(MIN_RATING, Math.min(own, ...linked, 99));
+  return Math.round(Math.max(MIN_RATING, Math.min(own, ...linked, 99)));
+}
+
+/** Summarize the effective cap distribution for balance diagnostics and tests. */
+export function capFamilyTotals(position: Position, body: Body): Record<string, number> {
+  return Object.fromEntries(
+    Object.entries(CAP_FAMILIES).map(([family, attributes]) => [
+      family,
+      attributes.reduce((sum, attributeId) => sum + capFor(attributeId, position, body), 0),
+    ]),
+  );
 }
 
 /**

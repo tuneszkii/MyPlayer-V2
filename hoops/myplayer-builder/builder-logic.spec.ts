@@ -3,6 +3,7 @@ import { ATTRIBUTES, MIN_RATING, TOTAL_POINTS, baseRatings } from './builder-dat
 import {
   applyChange,
   capFor,
+  capFamilyTotals,
   clampRatings,
   fitToBudget,
   overallRating,
@@ -119,6 +120,18 @@ describe('position and body caps', () => {
 
     expect(capFor('drivingDunk', 'PG', long)).toBeGreaterThan(capFor('drivingDunk', 'PG', compact));
     expect(capFor('threePoint', 'PG', long)).toBeLessThan(capFor('threePoint', 'PG', compact));
+  });
+
+  it('keeps body cap distributions specialized instead of universally elite', () => {
+    const guard: Body = { height: 74, weight: 176, wingspan: 79, hand: 'Right' };
+    const centre: Body = { height: 88, weight: 295, wingspan: 94, hand: 'Right' };
+    const guardCaps = capFamilyTotals('PG', guard);
+    const centreCaps = capFamilyTotals('C', centre);
+
+    expect(guardCaps.playmaking).toBeGreaterThan(guardCaps.rebounding);
+    expect(guardCaps.rebounding).toBeLessThan(centreCaps.rebounding);
+    expect(centreCaps.defense).toBeGreaterThan(centreCaps.playmaking);
+    expect(centreCaps.playmaking).toBeLessThan(guardCaps.playmaking);
   });
 
   it('lets a large centre max core interior attributes', () => {

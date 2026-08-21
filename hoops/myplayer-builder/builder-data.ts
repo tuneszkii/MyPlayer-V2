@@ -321,6 +321,37 @@ export const POSITION_CAPS: Record<Position, Partial<Record<string, number>>> = 
   },
 };
 
+/** Attribute families used by the cap-opportunity-cost model. */
+export const CAP_FAMILIES: Record<string, string[]> = {
+  finishing: ['closeShot', 'drivingLayup', 'drivingDunk', 'standingDunk', 'postControl'],
+  shooting: ['midRange', 'threePoint', 'freeThrow'],
+  playmaking: ['passAccuracy', 'ballHandle', 'speedWithBall'],
+  defense: ['interiorDefense', 'perimeterDefense', 'steal', 'block'],
+  rebounding: ['offensiveRebound', 'defensiveRebound'],
+  physicals: ['speed', 'agility', 'strength', 'vertical', 'stamina'],
+};
+
+/**
+ * Maximum family potential before body modifiers. Budgets intentionally leave
+ * room for one or two elite anchors instead of allowing every member to reach 99.
+ */
+export const CAP_FAMILY_BUDGETS: Record<Position, Record<string, number>> = {
+  PG: { finishing: 385, shooting: 280, playmaking: 280, defense: 285, rebounding: 115, physicals: 430 },
+  SG: { finishing: 400, shooting: 285, playmaking: 275, defense: 300, rebounding: 135, physicals: 430 },
+  SF: { finishing: 420, shooting: 280, playmaking: 265, defense: 300, rebounding: 155, physicals: 420 },
+  PF: { finishing: 430, shooting: 270, playmaking: 245, defense: 330, rebounding: 185, physicals: 400 },
+  C: { finishing: 450, shooting: 255, playmaking: 225, defense: 360, rebounding: 195, physicals: 375 },
+};
+
+/** A small number of body-position specialties can retain a true 99 ceiling. */
+export const CAP_ANCHORS: Record<Position, string[]> = {
+  PG: ['ballHandle', 'threePoint'],
+  SG: ['threePoint', 'perimeterDefense'],
+  SF: ['drivingDunk', 'perimeterDefense'],
+  PF: ['standingDunk', 'interiorDefense'],
+  C: ['standingDunk', 'block', 'strength', 'defensiveRebound'],
+};
+
 /** Height ranges (inches) allowed per position. */
 export const POSITION_HEIGHT: Record<Position, [number, number]> = {
   PG: [67, 79],
